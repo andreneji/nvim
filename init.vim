@@ -1,26 +1,51 @@
 set encoding=UTF-8
 
-" Configurações no (LINUX)
-source ~/.config/nvim/plug.vim
-source ~/.config/nvim/funcoes.vim
-source ~/.config/nvim/coc.vim
-"source ~/.config/nvim/hack.vim
 " maiúscula(U) / minúsculas(u) - entrar no modo visual
 
 "*** teclas de atalhos
 let mapleader="\<space>"
 
-"*** inicialiações rápidas
-nnoremap <leader>s      :source ~/.config/nvim/init.vim<cr>
-nnoremap <leader>ini    :vs ~/.config/nvim/init.vim<cr>
-nnoremap <leader>dic    :vs ~/.config/nvim/nvimDicas.txt<cr>
-nnoremap <leader>coc    :vs ~/.config/nvim/coc.vim<cr>
-nnoremap <leader>hac    :vs ~/.config/nvim/hack.vim<cr>
-nnoremap <leader>pl     :vs ~/.config/nvim/plug.vim<cr>
-nnoremap <leader>fun    :vs ~/.config/nvim/funcoes.vim<cr>
+if bufname('bash')
+   "  Configurações no (LINUX)
+   source ~/.config/nvim/plug.vim
+   source ~/.config/nvim/funcoes.vim
+   source ~/.config/nvim/coc.vim
+   " source ~/.config/nvim/hack.vim
+
+   " *** inicialiações rápidas
+   nnoremap <leader>s   :source ~/.config/nvim/init.vim<cr>
+   nnoremap <leader>ini :vs ~/.config/nvim/init.vim<cr>
+   nnoremap <leader>dic :vs ~/.config/nvim/nvimDicas.txt<cr>
+   nnoremap <leader>coc :vs ~/.config/nvim/coc.vim<cr>
+   nnoremap <leader>hac :vs ~/.config/nvim/hack.vim<cr>
+   nnoremap <leader>pl  :vs ~/.config/nvim/plug.vim<cr>
+   nnoremap <leader>fun :vs ~/.config/nvim/funcoes.vim<cr>
+else
+   "*** Configurações no (WIN)
+   :source c:\nvim\plug.vim
+   :source c:\nvim\funcoes.vim
+   :source c:\nvim\coc.vim
+   " :source c:\nvim\hack.vim
+
+   nnoremap <leader>s   :source ~\AppData\Local\nvim\init.vim<cr>
+   nnoremap <leader>ini :vs c:\nvim\init.vim<cr>
+   nnoremap <leader>dic :vs c:\nvim\nvimDicas.txt<cr>
+   nnoremap <leader>coc :vs c:\nvim\coc.vim<cr>
+   nnoremap <leader>hac :vs c:\nvim\hack.vim<cr>
+   nnoremap <leader>pl  :vs c:\nvim\plug.vim<cr>
+   nnoremap <leader>fun :vs c:\nvim\funcoes.vim<cr>
+endif
 
 colorscheme gruvbox
 let g:gruvbox_contrast_dark = ('hard')
+
+map <leader>1 :colorscheme gruvbox<CR>
+map <leader>2 :colorscheme tender<cr>
+map <leader>3 :colorscheme xcodedarkhc<cr>
+map <leader>4 :colorscheme onedark<cr>
+map <leader>5 :colorscheme molokai<cr>
+map <leader>6 :colorscheme jellybeans<cr>
+map <leader>7 :colorscheme dracula<cr>
 
 "*** atalho p/ o fzd (search)
 nnoremap <C-p>          :Files<cr>
@@ -74,7 +99,7 @@ vmap <leader>a          <esc>0vG$
 nmap <c-s>              :w<CR>
 vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
-map <F3>                :wq<cr>
+nmap <F3>               :wq<cr>
 nmap <F12>              :qa<cr>
 nnoremap <c-q>          :q<cr>
 
@@ -94,7 +119,8 @@ xnoremap <c-j>          :copy '>-1<cr>gv-gv
 nmap <leader>bb         :set list<cr>
 nmap <leader>b          :set nolist<cr>
 
-nmap <leader>ww         :set wrap!<cr> " habilita / desabilita a quebra de linhas
+nmap <leader>ww         :set wrap!<cr>      " habilita / desabilita a quebra de linhas
+nmap <C-g>              :Goyo<cr>           " esconde barras cima / baixo
 
 " "*** configurações
 set nowrap                                  " sem quebra de linha (default com quebra)
@@ -118,7 +144,8 @@ set noshowmode                              " quando minimizado exibe apenas a p
 set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
 
 "*** nerdtree
-nmap <F2> :NERDTreeToggle<CR>
+nmap <F2>               :NERDTreeToggle<CR>
+nmap <C-n>              :NERDTreeToggle<CR>
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore = [
   \'\.DS_Store$',
@@ -159,16 +186,3 @@ let g:airline_theme='serene'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_statusline_ontop=0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
-
-"*** Configurações no (WIN)
-":source c:\nvim\plug.vim
-":source c:\nvim\funcoes.vim
-":source c:\nvim\coc.vim
-":source c:\nvim\hack.vim
-"
-"nnoremap <leader>s           :source ~\AppData\Local\nvim\init.vim<cr>
-"nnoremap <leader>ini         :vs c:\nvim\init.vim<cr>
-"nnoremap <leader>dic         :vs c:\nvim\nvimDicas.txt<cr>
-"nnoremap <leader>coc         :vs c:\nvim\coc.vim<cr>
-"nnoremap <leader>hac         :vs c:\nvim\hack.vim<cr>
-"nnoremap <leader>pl          :vs c:\nvim\plug.vim<cr>
