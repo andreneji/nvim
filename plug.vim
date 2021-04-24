@@ -26,6 +26,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'ap/vim-css-color'
 Plug 'vim-ruby/vim-ruby'
 Plug 'shime/vim-livedown'                               " atualiza pag. (site) automatico - gc / gc + N+j ou k
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  } " If you have nodejs and yarn
 
 " Plug 'tomasr/molokai'
 " Plug 'dracula/vim', { 'as': 'dracula' }
