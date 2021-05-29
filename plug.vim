@@ -29,8 +29,10 @@ Plug 'terryma/vim-multiple-cursors'                                       " alte
 Plug 'dense-analysis/ale'                                                 " exibe erros no código na digitação
 Plug 'mattn/emmet-vim'                                                    " formata comandos com abrev. ex: htlm:5 e css / inclui tags entre os textos
 Plug 'tomtom/tcomment_vim'                                                " insere comentários em N linguagens
+Plug 'tpope/vim-fugitive'                                                 " vim + git
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                       " search de arquivos
 Plug 'junegunn/fzf.vim'
+Plug 'stsewd/fzf-checkout.vim' 
 Plug 'ap/vim-css-color'
 Plug 'vim-ruby/vim-ruby'
 Plug 'shime/vim-livedown'                                                 " atualiza pag. (site) automatico - gc / gc + N+j ou k
@@ -38,7 +40,7 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }  " If y
 
 " Plug 'scrooloose/nerdtree'
 " Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
-" Plug 'Yggdroot/indentLine'                                              " exibe tracejado com identação dos comandos
+Plug 'Yggdroot/indentLine'                                                " exibe tracejado com identação dos comandos
 " Plug 'vim-scripts/Brolink.vim'
 " Plug 'sheerun/html5.vim'
 " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }           " completa diretorios do sistema

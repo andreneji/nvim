@@ -75,10 +75,10 @@ map <Leader>b           :b
 nnoremap <Tab> %
 
 "*** open new splits in a semantic way
-nnoremap <Leader>9      :lefta vsp new <cr>
-nnoremap <Leader>-      :bel sp new<cr>
-nnoremap <Leader>=      :abo sp new<cr>
-nnoremap <Leader>0      :rightb vsp new<cr>
+nnoremap <c-w>9         :lefta vsp new <cr>
+nnoremap <c-w>-         :bel sp new<cr>
+nnoremap <c-w>=         :abo sp new<cr>
+nnoremap <c-w>0         :rightb vsp new<cr>
 
 "*** alterar entre janelas c/ cursor
 nnoremap <c-h>          <c-w>h
@@ -107,7 +107,7 @@ vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
 nmap <F3>               :wq<cr>
 nmap <F12>              :qa<cr>
-nnoremap <c-q>          :q<cr>
+" nnoremap <leader>qq     :q<cr>
 
 "*** redimensionar janelas
 nnoremap <c-Up>         :resize +2<CR>
@@ -128,24 +128,23 @@ nmap <leader>b          :set nolist<cr>
 "*** habilita / desabilita a quebra de linhas
 nmap <leader>ww         :set wrap!<cr>
 
-"*** esconde todas as possíveis distrações
-nmap <leader>go         :Goyo<cr>
+"*** fugitive + fzf + git
+nmap <leader>gj         :diffget //3<cr>
+nmap <leader>gf         :diffget //2<cr>
+nmap <leader>gs         :G<cr>
+
+let fzf_layout = { 'window': {'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+nnoremap <leader>gc     :GCheckout<CR>
 
 "*** nerdtree
-nmap <F2>               :NERDTreeToggle<CR>
-nmap <leader>n          :NERDTreeToggle<CR>
+nmap <leader>nt         :NERDTreeToggle<CR>
+
+"*** exibe tracejado
+nmap <leader>ii         :IndentLinesToggle<cr>
 
 " *** markdown
 nmap <leader>md         <Plug>MarkdownPreviewToggle
 
-" ┌─────────────────────────────────────────┐
-" │         Vim config. references          │
-" ├─────────────────────────────────────────┤
-" | https://github.com/lucascaton/vimfiles/ |
-" |                                         |
-" |                                         |
-" |                                         |
-" |                                         |
-" |                                         |
-" |                                         |
-" └─────────────────────────────────────────┘
+"*** esconde distrações
+nmap <leader>go         :Goyo<cr>
