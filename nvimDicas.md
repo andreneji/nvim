@@ -1,172 +1,117 @@
-:checkhealth
+## Configuração VIM (NVIM) - Dicas encontradas em sites e canais 
+
+
+### Dúvidas
+---
+habilitar o autosave  
+desabilitar o CAPS LOCK  
+configurar autocomplete com o plug coc p/ o ruby  
+como salvar e já atualizar o arquivo na tela  
+
+gf para navegar entre links  -  ctrl + o p/ retornar  
+
+c + J - change indo p/ baixo escrevendo  
+caw  
+delete tag  
+dat - delete all tag  
+dit - delete inside tag  
+delete + inside + parênteses ou aspas  
+d + i + )  
+delete + all + parênteses ou aspas  
+d + a + )  
+:checkhealth  
 :CocConfig
 
-
------------------
-Dúvidas
------------------
-ok - incluir as cores do css e html5?
-ok - configurar autocomplete com o plug coc
-
-habilitar o autosave
-desabilitar o CAPS LOCK
-configurar autocomplete com o plug coc p/ o ruby
-como salvar e já atualizar o arquivo na tela
-deixa letra maiscula e minúscula
-gf para navegar entre links
-ctrl + o p/ retornar
-
-c + J - change indo pra baixo escrevendo
-caw
-
-delete tag
-dat - delete all tag
-dit - delete inside tag
-
-delete + inside + parênteses ou aspas
-d + i + )
-
-delete + all + parênteses ou aspas
-d + a + )
+fugitive
+---
+=		exibe menu de git status do fugitive
+dv		exibe diferenças entre A x B
 
 
------------------
 tmux dicas
------------------
-man tmux
-httsp://github.com/tmux/tmux
-httsp://build-podcast.com/tmux
-httsp://www.sitepoint.com/10-killer-tmux-tips/
-httsp://content.pivotal.io/blog/how-we-use-tmux-for-remote-pair-programming
-httsp://leanpub.com/the-tao-of-tmux/read
-httsp://dotshare.it/category/terms/tmux
-httsp://wiki.archlinux.org/index.php/tmux
+---
+man tmux  
+httsp://github.com/tmux/tmux  
+httsp://build-podcast.com/tmux  
+httsp://www.sitepoint.com/10-killer-tmux-tips/  
+httsp://content.pivotal.io/blog/how-we-use-tmux-for-remote-pair-programming  
+httsp://leanpub.com/the-tao-of-tmux/read  
+httsp://dotshare.it/category/terms/tmux  
+httsp://wiki.archlinux.org/index.php/tmux  
 
+### Mais utilizados
+---
+:map <c-r>  
+:unmap <c-r>  
+Shift-C  
+Cc to change line  
 
+maiúscula(U) / minúsculas(u) - entrar no modo visual  
 
------------------
-Coc comandos
------------------
-:CocUninstall
-para navegar na lista de sugestões = Ctrl + n / Ctrl + p
+Vex                       lista pasta do arq. corrente  
+mksession filename.vim    salva sessão aberta no vim  
+so filename.vim           abre sessão salva  
+vim -s filename.vim       abre sessão salva  
 
-" Mappings for CoCList
-" Show all diagnostics.
-nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+Ctrl-b/f                  page up/down  
+cw                        Permite alterar a palavra sob o cursor.  
+Ctrl-y/e                  scroll line up/page  
 
+%                         salta entre agrupadores (pares)  
+g,                        go to last insert  
 
+q + :                     exibe lista de ultimos comandos em janela  
 
+zb, zt, zz                centralizando  
+zb (botom)                posiciona a tela acima da linha do cursor  
+zt (top)                  posiciona a tela abaixo da linha do cursor  
 
-extensions						*coc-list-extensions*
+H (head)                  salto cursor p/ o topo sem mover a tela  
+M (midle)                 salto cursor p/ o meio  
+L (low)                 salto cursor p/ o fim  
 
-	Manage coc extensions.
+buscar na linha:  
+f[letra]                  busca p/ frente  
+F[letra]                  busca pra trás  
+t[letra]                  o mesmo que f[letra], mas uma posição antes.  
+T[letra]                  o mesmo que f[letra], mas uma posição antes.  
 
-	Actions:
+### ATALHOS - MODO DE INSERÇÃO
+---
+^ = ctrl  
+^y   - Repete, caracter por caracter, a linha acima a do cursor  
+^e   - Repete, caracter por caracter, a linha abaixo da do cursor  
+o    - O Vim entra em um modo de inserção especial "(inserção)" permitindo uma única tarefa
+       nos outros modos (normal e comando), após isso, imediatamente retorna ao modo de INSERÇÂO normal  
+^x^l - Abre uma janela popup permitindo escolher qualquer linha já existente no arquivo  
+^w   - Apaga (na linha) a última palavra digitada anterior ao cursor  
+^u   - Apaga (na linha) da posição do cursor até o início da linha  
+^t   - Indenta linha atual  
+^d   - Desidenta linha atual  
 
-	- 'toggle' activate/deactivate extension, default action.
-	- 'disable' disable extension.
-	- 'enable' enable extension.
-	- 'lock' lock/unlock extension to current version.
-	- 'doc' view extension's README doc.
-	- 'fix' fix dependencies in terminal buffer.
-	- 'reload' reload extension.
-	- 'uninstall' uninstall extension.
+### Navegando entre abas, janelas e buffers
+---
 
-
------------------
-Mais utilizados
------------------
-:map <c-r>
-:unmap <c-r>
-Shift-C
-Cc to change line
-
-
-maiúscula(U) / minúsculas(u) - entrar no modo visual
-
-Vex                       lista pasta do arq. corrente
-mksession filename.vim    salva sessão aberta no vim
-so filename.vim           abre sessão salva
-vim -s filename.vim       abre sessão salva
-
-Ctrl-b/f                  page up/down
-cw                        Permite alterar a palavra sob o cursor.
-Ctrl-y/e                  scroll line up/page
-
-%                         salta entre agrupadores (pares)
-g,                        go to last insert
-
-q + :                     exibe lista de ultimos comandos em janela
-
-zb, zt, zz                centralizando
-zb (botom)                posiciona a tela acima da linha do cursor
-zt (top)                  posiciona a tela abaixo da linha do cursor
-
-H (head)                  salto cursor p/ o topo sem mover a tela
-M (midle)                 salto cursor p/ o meio
-L (low)                 salto cursor p/ o fim
-
-buscar na linha:
-f[letra]                  busca p/ frente
-F[letra]                  busca pra trás
-t[letra]                  o mesmo que f[letra], mas uma posição antes.
-T[letra]                  o mesmo que f[letra], mas uma posição antes.
-
-------------------------------------------------------
-21. ATALHOS (MÃO NA RODA) ESTANDO NO MODO DE INSERÇÃO
-------------------------------------------------------
-
-^ = ctrl
-^y   - Repete, caracter por caracter, a linha acima a do cursor
-^e   - Repete, caracter por caracter, a linha abaixo da do cursor
-
-o   - O Vim entra em um modo de inserção especial "(inserção)" permitindo uma única tarefa
-       nos outros modos (normal e comando), após isso, imediatamente retorna ao modo de INSERÇÂO normal
-^x^l - Abre uma janela popup permitindo escolher qualquer linha já existente no arquivo
-^w   - Apaga (na linha) a última palavra digitada anterior ao cursor
-^u   - Apaga (na linha) da posição do cursor até o início da linha
-^t   - Indenta linha atual
-^d   - Desidenta linha atual
-
-------------------------------------------
-Navegando entre abas, janelas e buffers
-------------------------------------------
-
-ctrl + fr + setas originais   navega entre as abas abertas
-gt 2gt 4gt                    navega entre as abas abertas
-vim -p file01 file02          abre N arq. em N abas
-
-Ctrl + w + s									split horizontal - Clona janela atual
-Ctrl + w + v									split vertical   - Clona janela atual
-Ctrl + w + n									split horizontal - arquivo novo
-
-:split                        Divide tela na horizontal - sem novo de arq., duplica / com nome cria um novo
-:vsplit                       Divide tela na vertical
-
-:tabnew                       Nova aba vazia
-:tabnew arquivo.txt
-:tabclose arquivo.txt
-:tabonly                      deixa apenas a aba corrente aberta, as demais continuam em buffer
-
+gt 2gt 4gt                    navega entre as abas abertas  
+vim -p file01 file02          abre N arq. em N abas  
+  
+Ctrl + w + s									split horizontal - Clona janela atual  
+Ctrl + w + v									split vertical   - Clona janela atual  
+Ctrl + w + n									split horizontal - arquivo novo  
+  
+:split                        Divide tela na horizontal - sem novo de arq., duplica / com nome cria um novo  
+:vsplit                       Divide tela na vertical  
+  
+:tabnew                       Nova aba vazia  
+:tabnew arquivo.txt  
+:tabclose arquivo.txt  
+:tabonly                      deixa apenas a aba corrente aberta, as demais continuam em buffer  
 
 :[N]vne[w] [++opt] [+cmd] [file]			*:vne* *:vnew*
-		Like |:new|, but split vertically.  If 'equalalways' is set
-		and 'eadirection' isn't "ver" the windows will be spread out
-		horizontally, unless a width was specified.
+
+	Like |:new|, but split vertically.  If 'equalalways' is set
+	and 'eadirection' isn't "ver" the windows will be spread out
+	horizontally, unless a width was specified.
 
 :[N]new [++opt] [+cmd] {file}
 :[N]sp[lit] [++opt] [+cmd] {file}			*:split_f*
@@ -184,16 +129,13 @@ Ctrl + w + n									split horizontal - arquivo novo
 
 
 
--------------------------------------
 As teclas de comando do editor vim
--------------------------------------
+---
 
 
 k j l h                         cursores
-
-gu (visual mode)								Make lowercase
-gU (visual mode)								Make uppercase
-
+gu (visual mode)				Make lowercase
+gU (visual mode)				Make uppercase
 c-w + o                         exibe o buffer full (only one windown)
 `. ou g,												retorna p/ úlima linha editada
 
