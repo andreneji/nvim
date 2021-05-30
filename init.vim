@@ -22,7 +22,7 @@ let mapleader="\<space>"
    " inicialiações rápidas
    nnoremap <leader>s   :source ~/.config/nvim/init.vim<cr>
    nnoremap <leader>ini :vs ~/.config/nvim/init.vim<cr>
-   nnoremap <leader>dic :vs ~/.config/nvim/nvimDicas.md<cr>
+   nnoremap <leader>dic :vs ~/.config/nvim/dicas.txt<cr>
    nnoremap <leader>coc :vs ~/.config/nvim/coc.vim<cr>
    nnoremap <leader>hac :vs ~/.config/nvim/hack.vim<cr>
    nnoremap <leader>pl  :vs ~/.config/nvim/plug.vim<cr>
@@ -38,7 +38,7 @@ let mapleader="\<space>"
 "
 "   nnoremap <leader>s   :source ~\AppData\Local\nvim\init.vim<cr>
 "   nnoremap <leader>ini :vs c:\nvim\init.vim<cr>
-"   nnoremap <leader>dic :vs c:\nvim\nvimDicas.md<cr>
+"   nnoremap <leader>dic :vs c:\nvim\dicas.txt<cr>
 "   nnoremap <leader>coc :vs c:\nvim\coc.vim<cr>
 "   nnoremap <leader>hac :vs c:\nvim\hack.vim<cr>
 "   nnoremap <leader>pl  :vs c:\nvim\plug.vim<cr>
