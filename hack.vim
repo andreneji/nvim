@@ -1,5 +1,5 @@
 " ===============================================
-    " 'iamcco/markdown-preview.nvim' - config
+"    'iamcco/markdown-preview.nvim' - config
 " ===============================================
 
 "" set to 1, nvim will open the preview window after entering the markdown buffer
@@ -148,10 +148,10 @@ noremap <Left>  <Nop>
 noremap <Right> <Nop>
 noremap <Up>    <Nop>
 
-noremap <c-w>h  <Nop>
-noremap <c-w>j  <Nop>
-noremap <c-w>k  <Nop>
-noremap <c-w>l  <Nop>
+" noremap <c-w>h  <Nop>
+" noremap <c-w>j  <Nop>
+" noremap <c-w>k  <Nop>
+" noremap <c-w>l  <Nop>
 
 "** airline
 set laststatus=2

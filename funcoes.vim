@@ -70,7 +70,7 @@ nmap  <leader><leader>  :call TrimWhiteSpace()<CR>
 " nmap! <leader><leader>   :call TrimWhiteSpace()<CR>
 
 " Removes trailing spaces before saving
-autocmd BufWritePre * :%s/\s\+$//e
+" autocmd BufWritePre * :%s/\s\+$//e
 
 " por default desabilitar exibir indentLine
 " let g:vim_json_syntax_conceal = 0

@@ -22,13 +22,12 @@ if &buftype == 'bash'
    " inicialiações rápidas
    nnoremap <leader>s   :source ~/.config/nvim/init.vim<cr>
    nnoremap <leader>ini :vs ~/.config/nvim/init.vim<cr>
-   nnoremap <leader>dic :vs ~/.config/nvim/nvimDicas.md<cr>
+   nnoremap <leader>dic :vs ~/.config/nvim/dicas.txt<cr>
    nnoremap <leader>coc :vs ~/.config/nvim/coc.vim<cr>
    nnoremap <leader>hac :vs ~/.config/nvim/hack.vim<cr>
    nnoremap <leader>pl  :vs ~/.config/nvim/plug.vim<cr>
    nnoremap <leader>fun :vs ~/.config/nvim/funcoes.vim<cr>
    nnoremap <leader>tmu :vs ~/.tmux.conf<cr>
-"endif
 else
    " config. (WIN)
    :source c:\nvim\plug.vim
@@ -38,7 +37,7 @@ else
 
    nnoremap <leader>s   :source ~\AppData\Local\nvim\init.vim<cr>
    nnoremap <leader>ini :vs c:\nvim\init.vim<cr>
-   nnoremap <leader>dic :vs c:\nvim\nvimDicas.md<cr>
+   nnoremap <leader>dic :vs c:\nvim\dicas.txt<cr>
    nnoremap <leader>coc :vs c:\nvim\coc.vim<cr>
    nnoremap <leader>hac :vs c:\nvim\hack.vim<cr>
    nnoremap <leader>pl  :vs c:\nvim\plug.vim<cr>
@@ -75,10 +74,10 @@ map <Leader>b           :b
 nnoremap <Tab> %
 
 "*** open new splits in a semantic way
-nnoremap <Leader>9      :lefta vsp new <cr>
-nnoremap <Leader>-      :bel sp new<cr>
-nnoremap <Leader>=      :abo sp new<cr>
-nnoremap <Leader>0      :rightb vsp new<cr>
+nnoremap <c-w>9         :lefta vsp new <cr>
+nnoremap <c-w>-         :bel sp new<cr>
+nnoremap <c-w>=         :abo sp new<cr>
+nnoremap <c-w>0         :rightb vsp new<cr>
 
 "*** alterar entre janelas c/ cursor
 nnoremap <c-h>          <c-w>h
@@ -107,7 +106,7 @@ vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
 nmap <F3>               :wq<cr>
 nmap <F12>              :qa<cr>
-nnoremap <c-q>          :q<cr>
+" nnoremap <leader>qq     :q<cr>
 
 "*** redimensionar janelas
 nnoremap <c-Up>         :resize +2<CR>
@@ -128,11 +127,23 @@ nmap <leader>b          :set nolist<cr>
 "*** habilita / desabilita a quebra de linhas
 nmap <leader>ww         :set wrap!<cr>
 
-"*** esconde todas as possíveis distrações
-nmap <leader>go         :Goyo<cr>
+"*** fugitive + fzf + git
+nmap <leader>gj         :diffget //3<cr>
+nmap <leader>gf         :diffget //2<cr>
+nmap <leader>gs         :G<cr>
+
+let fzf_layout = { 'window': {'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+nnoremap <leader>gc     :GCheckout<CR>
 
 "*** nerdtree
 nmap <leader>nt         :NERDTreeToggle<CR>
 
-" *** markdown
+"*** exibe tracejado
+nmap <leader>ii         :IndentLinesToggle<cr>
+
+"*** markdown
 nmap <leader>md         <Plug>MarkdownPreviewToggle
+
+"*** esconde distrações
+nmap <leader>go         :Goyo<cr>
