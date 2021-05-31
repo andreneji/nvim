@@ -75,18 +75,18 @@ autocmd BufWritePre * :%s/\s\+$//e
 " por default desabilitar exibir indentLine
 " let g:vim_json_syntax_conceal = 0
 
-" "*** Terminal no NVIM
+"*** Terminal no NVIM
 " tnoremap <Esc> <C-\><C-t>
 " au BufEnter * if &buftype == 'bash' | :startinsert | endif
 "
 " function! Terminal()
-"   let terminal = bufname('bash')
-"   " let terminal = bufname('powershell')
+"   " let terminal = bufname('bash')
+"   let terminal = bufname('powershell')
 "   if terminal == ''
 "     below terminal ++rows=5
 "     below split term://bash
 "     " below split term://zsh
-"    comentar  bel split term://powershell
+"    " comentar  bel split term://powershell
 "     resize 10
 "   else
 "     let bnr = bufnr(terminal)

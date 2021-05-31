@@ -12,7 +12,7 @@ set encoding=UTF-8
 let mapleader="\<space>"
 
 " if bufname('bash')
-" if &buftype == 'bash'
+if &buftype == 'bash'
    " conf. (LINUX)
    source ~/.config/nvim/plug.vim
    source ~/.config/nvim/funcoes.vim
@@ -29,21 +29,21 @@ let mapleader="\<space>"
    nnoremap <leader>fun :vs ~/.config/nvim/funcoes.vim<cr>
    nnoremap <leader>tmu :vs ~/.tmux.conf<cr>
 "endif
-"else
-"   " config. (WIN)
-"   :source c:\nvim\plug.vim
-"   :source c:\nvim\funcoes.vim
-"   :source c:\nvim\coc.vim
-"   :source c:\nvim\hack.vim
-"
-"   nnoremap <leader>s   :source ~\AppData\Local\nvim\init.vim<cr>
-"   nnoremap <leader>ini :vs c:\nvim\init.vim<cr>
-"   nnoremap <leader>dic :vs c:\nvim\nvimDicas.md<cr>
-"   nnoremap <leader>coc :vs c:\nvim\coc.vim<cr>
-"   nnoremap <leader>hac :vs c:\nvim\hack.vim<cr>
-"   nnoremap <leader>pl  :vs c:\nvim\plug.vim<cr>
-"   nnoremap <leader>fun :vs c:\nvim\funcoes.vim<cr>
-"endif
+else
+   " config. (WIN)
+   :source c:\nvim\plug.vim
+   :source c:\nvim\funcoes.vim
+   :source c:\nvim\coc.vim
+   :source c:\nvim\hack.vim
+
+   nnoremap <leader>s   :source ~\AppData\Local\nvim\init.vim<cr>
+   nnoremap <leader>ini :vs c:\nvim\init.vim<cr>
+   nnoremap <leader>dic :vs c:\nvim\nvimDicas.md<cr>
+   nnoremap <leader>coc :vs c:\nvim\coc.vim<cr>
+   nnoremap <leader>hac :vs c:\nvim\hack.vim<cr>
+   nnoremap <leader>pl  :vs c:\nvim\plug.vim<cr>
+   nnoremap <leader>fun :vs c:\nvim\funcoes.vim<cr>
+endif
 
 colorscheme gruvbox
 
@@ -132,20 +132,7 @@ nmap <leader>ww         :set wrap!<cr>
 nmap <leader>go         :Goyo<cr>
 
 "*** nerdtree
-nmap <F2>               :NERDTreeToggle<CR>
-nmap <leader>n          :NERDTreeToggle<CR>
+nmap <leader>nt         :NERDTreeToggle<CR>
 
 " *** markdown
 nmap <leader>md         <Plug>MarkdownPreviewToggle
-
-" ┌─────────────────────────────────────────┐
-" │         Vim config. references          │
-" ├─────────────────────────────────────────┤
-" | https://github.com/lucascaton/vimfiles/ |
-" |                                         |
-" |                                         |
-" |                                         |
-" |                                         |
-" |                                         |
-" |                                         |
-" └─────────────────────────────────────────┘
