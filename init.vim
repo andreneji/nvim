@@ -11,8 +11,15 @@ set encoding=UTF-8
 "*** teclas de atalhos
 let mapleader="\<space>"
 
-" if bufname('bash')
+" " if bufname('bash')
 " if &buftype == 'bash'
+"  echo 'aaaaaaaaa'
+" else
+"  echo 'bbbbbbbbb'
+" endif
+
+"if bufname('bash')
+"if &buftype == 'bash'
    " conf. (LINUX)
    source ~/.config/nvim/plug.vim
    source ~/.config/nvim/funcoes.vim
@@ -28,7 +35,6 @@ let mapleader="\<space>"
    nnoremap <leader>pl  :vs ~/.config/nvim/plug.vim<cr>
    nnoremap <leader>fun :vs ~/.config/nvim/funcoes.vim<cr>
    nnoremap <leader>tmu :vs ~/.tmux.conf<cr>
-"endif
 "else
 "   " config. (WIN)
 "   :source c:\nvim\plug.vim
@@ -143,7 +149,7 @@ nmap <leader>nt         :NERDTreeToggle<CR>
 "*** exibir tracejado
 nmap <leader>ii         :IndentLinesToggle<cr>
 
-" *** markdown
+"*** markdown
 nmap <leader>md         <Plug>MarkdownPreviewToggle
 
 "*** esconder distrações
