@@ -74,6 +74,7 @@ nmap <Leader><F9>	    :sb<cr>
 nnoremap <Leader>q	    :bd<cr>
 nnoremap <Leader>w	    :bun<cr>
 nnoremap <Leader>qq	    :bd!<cr>
+nnoremap <c-w>q	        :bd! new<cr>
 map <Leader>b           :b
 " nnoremap <Leader>q	:bd \| bd<cr>
 
@@ -81,10 +82,10 @@ map <Leader>b           :b
 nnoremap <Tab> %
 
 "*** open new splits in a semantic way
-nnoremap <c-w>9         :lefta vsp new <cr>
-nnoremap <c-w>-         :bel sp new<cr>
-nnoremap <c-w>=         :abo sp new<cr>
-nnoremap <c-w>0         :rightb vsp new<cr>
+nnoremap <c-w>99        :lefta vsp new <cr>
+nnoremap <c-w>--        :bel sp new<cr>
+nnoremap <c-w>==        :abo sp new<cr>
+nnoremap <c-w>00        :rightb vsp new<cr>
 
 "*** alterar entre janelas c/ cursor
 nnoremap <c-h>          <c-w>h
@@ -104,14 +105,15 @@ noremap <C-Z>           u
 inoremap <C-Z>          <C-O>u
 
 "*** selec. tudo da linha p/ (baixo / cima) no modo visual
-vmap <leader>k          <esc>$vgg1
-vmap <leader>j          <esc>0vG$
+"*** não precisa do atalho, basta entrar no modo visual + gg (cima) ou G(baixo)
+" vmap <leader>k          <esc>$vgg1
+" vmap <leader>j          <esc>0vG$
 
 "*** salvar e sair
 nmap <c-s>              :w<CR>
 vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
-nmap <F3>               :wq<cr>
+" nmap <F3>               :wq<cr>
 nmap <F12>              :qa<cr>
 " nnoremap <leader>qq     :q<cr>
 
