@@ -1,6 +1,9 @@
+Lembretes
+-----------------
 :checkhealth
 :CocConfig
 
+'teste'
 
 -----------------
 Dúvidas
@@ -30,19 +33,24 @@ delete + all + parênteses ou aspas
 d + a + )
 
 
------------------
-tmux dicas
------------------
-man tmux
-httsp://github.com/tmux/tmux
-httsp://build-podcast.com/tmux
-httsp://www.sitepoint.com/10-killer-tmux-tips/
-httsp://content.pivotal.io/blog/how-we-use-tmux-for-remote-pair-programming
-httsp://leanpub.com/the-tao-of-tmux/read
-httsp://dotshare.it/category/terms/tmux
-httsp://wiki.archlinux.org/index.php/tmux
 
 
+## VIM novos
+
+* selec. linha(s) no modo visual + :fold e zo ou zc // ocultar / exibir trecho de código
+* gg + =G // p/ identar o código
+
+* space + gs // abre o git satus
+* s ou u // p/ staged ou unstaged
+
+#### TAB SHORTCUTS
+https://gist.github.com/tuxfight3r/0dca25825d9f2608714b
+* CTRL+W T // Break out current window into a new tabview
+* CTRL+W o // Close every window in the current tabview but the current one
+* CTRL+W n // Create a new window in the current tabview
+* CTRL+W c // Close current window in the current tabview
+
+* nvim -d .\file01 '.\file01 - bkp' // p/ fazer comparação entre dois ou mais arquivos (nvim diff)
 
 -----------------
 Coc comandos
