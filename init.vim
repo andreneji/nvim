@@ -60,10 +60,10 @@ map <Leader>b           :b
 nnoremap <Tab> %
 
 "*** open new splits in a semantic way
-nnoremap <c-w>9         :lefta vsp new <cr>
-nnoremap <c-w>-         :bel sp new<cr>
-nnoremap <c-w>=         :abo sp new<cr>
-nnoremap <c-w>0         :rightb vsp new<cr>
+nnoremap <c-w>99        :lefta vsp new <cr>
+nnoremap <c-w>--        :bel sp new<cr>
+nnoremap <c-w>==        :abo sp new<cr>
+nnoremap <c-w>00        :rightb vsp new<cr>
 
 "*** alterar entre janelas c/ cursor
 nnoremap <c-h>          <c-w>h
@@ -82,9 +82,10 @@ inoremap <S-insert>     <c-r>*
 noremap <C-Z>           u
 inoremap <C-Z>          <C-O>u
 
-"*** selecionar tudo da linha p/ (baixo / cima) no modo visual
-vmap <leader>aa         <esc>$vgg1
-vmap <leader>a          <esc>0vG$
+"*** selec. tudo da linha p/ (baixo / cima) no modo visual
+"*** não precisa do atalho, basta entrar no modo visual + gg (cima) ou G(baixo)
+" vmap <leader>k          <esc>$vgg1
+" vmap <leader>j          <esc>0vG$
 
 "*** salvar e sair
 nmap <c-s>              :w<CR>
@@ -100,17 +101,17 @@ nnoremap <c-Down>       :resize -2<CR>
 nnoremap <c-Left>       :vertical resize -2<CR>
 nnoremap <c-Right>      :vertical resize +2<CR>
 
-"*** mover linha selec. p/ cima/baixo com alt+j/alt+k
+"*** move linha selec. p/ cima/baixo com alt+j/alt+k
 xnoremap <a-k>          :move '<-2<CR>gv-gv
 xnoremap <a-j>          :move '>+1<CR>gv-gv
 xnoremap <C-k>          :copy '<-1<CR>gv-gv
 xnoremap <c-j>          :copy '>-1<cr>gv-gv
 
-"*** exibe caracteres em branco a direita
+"*** exibir caracteres em branco a direita
 nmap <leader>bb         :set list<cr>
 nmap <leader>b          :set nolist<cr>
 
-"*** habilita / desabilita a quebra de linhas
+"*** habilitar / desabilitar a quebra de linhas
 nmap <leader>ww         :set wrap!<cr>
 
 "*** fugitive + fzf + git
@@ -125,11 +126,11 @@ nnoremap <leader>gc     :GCheckout<CR>
 "*** nerdtree
 nmap <leader>nt         :NERDTreeToggle<CR>
 
-"*** exibe tracejado
+"*** exibir tracejado
 nmap <leader>ii         :IndentLinesToggle<cr>
 
 "*** markdown
 nmap <leader>md         <Plug>MarkdownPreviewToggle
 
-"*** esconde distrações
+"*** esconder distrações
 nmap <leader>go         :Goyo<cr>

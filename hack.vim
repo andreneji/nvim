@@ -147,6 +147,7 @@ noremap <Down>  <Nop>
 noremap <Left>  <Nop>
 noremap <Right> <Nop>
 noremap <Up>    <Nop>
+noremap <c-w>q  <Nop>
 
 " noremap <c-w>h  <Nop>
 " noremap <c-w>j  <Nop>
