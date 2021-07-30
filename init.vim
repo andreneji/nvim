@@ -11,44 +11,21 @@ set encoding=UTF-8
 "*** teclas de atalhos
 let mapleader="\<space>"
 
-" " if bufname('bash')
-" if &buftype == 'bash'
-"  echo 'aaaaaaaaa'
-" else
-"  echo 'bbbbbbbbb'
-" endif
+" conf. (LINUX)
+source ~/.config/nvim/plug.vim
+source ~/.config/nvim/funcoes.vim
+source ~/.config/nvim/coc.vim
+source ~/.config/nvim/hack.vim
 
-"if bufname('bash')
-"if &buftype == 'bash'
-   " conf. (LINUX)
-   source ~/.config/nvim/plug.vim
-   source ~/.config/nvim/funcoes.vim
-   source ~/.config/nvim/coc.vim
-   source ~/.config/nvim/hack.vim
-
-   " inicialiações rápidas
-   nnoremap <leader>s   :source ~/.config/nvim/init.vim<cr>
-   nnoremap <leader>ini :vs ~/.config/nvim/init.vim<cr>
-   nnoremap <leader>coc :vs ~/.config/nvim/coc.vim<cr>
-   nnoremap <leader>hac :vs ~/.config/nvim/hack.vim<cr>
-   nnoremap <leader>pl  :vs ~/.config/nvim/plug.vim<cr>
-   nnoremap <leader>fun :vs ~/.config/nvim/funcoes.vim<cr>
-   nnoremap <leader>tmu :vs ~/.tmux.conf<cr>
-"else
-"   " config. (WIN)
-"   :source c:\nvim\plug.vim
-"   :source c:\nvim\funcoes.vim
-"   :source c:\nvim\coc.vim
-"   :source c:\nvim\hack.vim
-"
-"   nnoremap <leader>s   :source ~\AppData\Local\nvim\init.vim<cr>
-"   nnoremap <leader>ini :vs c:\nvim\init.vim<cr>
-"   nnoremap <leader>dic :vs c:\nvim\dicas.txt<cr>
-"   nnoremap <leader>coc :vs c:\nvim\coc.vim<cr>
-"   nnoremap <leader>hac :vs c:\nvim\hack.vim<cr>
-"   nnoremap <leader>pl  :vs c:\nvim\plug.vim<cr>
-"   nnoremap <leader>fun :vs c:\nvim\funcoes.vim<cr>
-"endif
+" inicialiações rápidas
+nnoremap <leader>s      :source ~/.config/nvim/init.vim<cr>
+nnoremap <leader>ini    :vs ~/.config/nvim/init.vim<cr>
+nnoremap <leader>dic    :vs ~/.config/nvim/dicas.txt<cr>
+nnoremap <leader>coc :vs ~/.config/nvim/coc.vim<cr>
+nnoremap <leader>hac    :vs ~/.config/nvim/hack.vim<cr>
+nnoremap <leader>pl     :vs ~/.config/nvim/plug.vim<cr>
+nnoremap <leader>fun    :vs ~/.config/nvim/funcoes.vim<cr>
+nnoremap <leader>tmu    :vs ~/.tmux.conf<cr>
 
 colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
@@ -60,17 +37,27 @@ map <leader>3           :colorscheme tender<cr>
 "*** atalho p/ o fzd (search)
 nnoremap <C-p>          :Files<cr>
 
+"*** minimizar buffers, salvando sessão
+nnoremap <C-w>mo        :mksession! ~/.session.vim<CR>:wincmd o<CR>
+nnoremap <leader>mk     :mksession! ~/.session.vim<CR>
+nnoremap <leader>ms     :source ~/.session.vim<CR>
+
 "*** navegar entre buffers - (M = ALT)
 nnoremap <M-l>          :bn<cr>
 nnoremap <M-h>          :bp<cr>
 
+"*** abrir e navegar entre tabs (abas) - (M = ALT)
+nnoremap <M-k>          :tabnext<cr>
+nnoremap <M-j>          :tabprev<cr>
+nnoremap <leader><tab>  :tabnew<cr>
+
 "*** visualizar e fechar buffers
-nmap <F9>               :buffers<cr>
+nmap <S-F9>             :buffers<cr>
 nmap <Leader><F9>	    :sb<cr>
-nnoremap <Leader>q	    :bd<cr>
-nnoremap <Leader>w	    :bun<cr>
-nnoremap <Leader>qq	    :bd!<cr>
-" nnoremap <c-w>q	        :bd! new<cr>
+nnoremap <c-w>u  	    :bun<cr>
+nnoremap <c-w>qq	    :bd!<cr>
+nnoremap <c-w>q	        :bd<cr>
+" nnoremap <c-w>q       :bd! new<cr>
 map <Leader>b           :b
 " nnoremap <Leader>q	:bd \| bd<cr>
 
@@ -104,8 +91,8 @@ inoremap <C-Z>          <C-O>u
 nmap <c-s>              :w<CR>
 vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
-" nmap <F3>               :wq<cr>
-" nmap <F12>              :qa<cr>
+nmap <S-F3>             :wq<cr>
+nmap <S-F12>            :qa<cr>
 " nnoremap <leader>qq     :q<cr>
 
 "*** redimensionar janelas
