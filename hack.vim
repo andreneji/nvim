@@ -160,3 +160,37 @@ let g:airline_theme='serene'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_statusline_ontop=0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+"*** fzf-checkout - Manage branches and tags with fzf
+let fzf_layout = { 'window': {'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+
+"*** liuchengxu/vim-which-key - show command completion at bottom
+let g:which_key_disable_default_offset = 1
+let g:which_key_use_floating_win = 1
+
+autocmd FileType which_key setlocal nospell
+
+let g:which_key_map = {
+	\ '>' : [':call NextBufferTab()'              , 'tab-next']     ,
+	\ '<' : [':call PrevBufferTab()'              , 'tab-previous'] ,
+    \ "'" : [':call ChooseTerm("term-slider", 1)' , 'terminal']     ,
+	\ "." : [':Explore'                           , 'netrw']        ,
+	\ "C" : 'toggle-cheatsheet-comments'          ,
+	\}
+
+"*** mapeamento do FloatermNew - terminal inside vim 
+let g:which_key_map.t = {
+	\ 'name' : '+terminal'                                       ,
+	\ 'T'    : [':call ChooseTerm("term-slider", 1)'             , 'terminal'] ,
+	\ 'f'    : [':FloatermNew fzf'                               , 'fzf']      ,
+	\ 'g'    : [':FloatermNew lazygit'                           , 'git']      ,
+	\ 'd'    : [':FloatermNew lazydocker'                        , 'docker']   ,
+	\ 'n'    : [':FloatermNew node'                              , 'node']     ,
+	\ 'p'    : [':FloatermNew python'                            , 'python']   ,
+	\ 'm'    : [':FloatermNew lazynpm'                           , 'npm']      ,
+	\ 't'    : [':FloatermToggle'                                , 'toggle']   ,
+	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
+	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
+	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 /bin/ranger', 'ranger'],
+	\ }

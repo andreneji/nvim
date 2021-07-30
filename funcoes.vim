@@ -73,7 +73,8 @@ nmap  <leader><leader>  :call TrimWhiteSpace()<CR>
 " autocmd BufWritePre * :%s/\s\+$//e
 
 " por default desabilitar exibir indentLine
-" let g:vim_json_syntax_conceal = 0
+" let g:vim_json_syntax_conceal = 1
+let indentLine_enabled = 0
 
 "*** Terminal no NVIM
 " tnoremap <Esc> <C-\><C-t>
@@ -120,5 +121,10 @@ nmap  <leader><leader>  :call TrimWhiteSpace()<CR>
 "
 " nnoremap <c-t> :call Terminal()<CR>
 " autocmd TerminalOpen * if &buftype == 'terminal' | setlocal nobuflisted | endif
-
-
+"
+"
+"
+"*** selec. tudo da linha p/ (baixo / cima) no modo visual
+"*** não precisa do atalho, basta entrar no modo visual + gg (cima) ou G(baixo)
+" vmap <leader>k          <esc>$vgg1
+" vmap <leader>j          <esc>0vG$

@@ -29,7 +29,6 @@ let mapleader="\<space>"
    " inicialiações rápidas
    nnoremap <leader>s   :source ~/.config/nvim/init.vim<cr>
    nnoremap <leader>ini :vs ~/.config/nvim/init.vim<cr>
-   nnoremap <leader>dic :vs ~/.config/nvim/dicas.txt<cr>
    nnoremap <leader>coc :vs ~/.config/nvim/coc.vim<cr>
    nnoremap <leader>hac :vs ~/.config/nvim/hack.vim<cr>
    nnoremap <leader>pl  :vs ~/.config/nvim/plug.vim<cr>
@@ -52,14 +51,11 @@ let mapleader="\<space>"
 "endif
 
 colorscheme gruvbox
+hi Normal guibg=NONE ctermbg=NONE
 
-map <leader>1           :colorscheme gruvbox<cr>
-map <leader>2           :colorscheme tender<cr>
-map <leader>3           :colorscheme xcodedarkhc<cr>
-map <leader>4           :colorscheme onedark<cr>
-map <leader>5           :colorscheme molokai<cr>
-map <leader>6           :colorscheme jellybeans<cr>
-map <leader>7           :colorscheme dracula<cr>
+map <leader>1           :colorscheme dracula<cr>
+map <leader>2           :colorscheme xcodedarkhc<cr>
+map <leader>3           :colorscheme tender<cr>
 
 "*** atalho p/ o fzd (search)
 nnoremap <C-p>          :Files<cr>
@@ -74,7 +70,7 @@ nmap <Leader><F9>	    :sb<cr>
 nnoremap <Leader>q	    :bd<cr>
 nnoremap <Leader>w	    :bun<cr>
 nnoremap <Leader>qq	    :bd!<cr>
-nnoremap <c-w>q	        :bd! new<cr>
+" nnoremap <c-w>q	        :bd! new<cr>
 map <Leader>b           :b
 " nnoremap <Leader>q	:bd \| bd<cr>
 
@@ -104,17 +100,12 @@ inoremap <S-insert>     <c-r>*
 noremap <C-Z>           u
 inoremap <C-Z>          <C-O>u
 
-"*** selec. tudo da linha p/ (baixo / cima) no modo visual
-"*** não precisa do atalho, basta entrar no modo visual + gg (cima) ou G(baixo)
-" vmap <leader>k          <esc>$vgg1
-" vmap <leader>j          <esc>0vG$
-
 "*** salvar e sair
 nmap <c-s>              :w<CR>
 vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
 " nmap <F3>               :wq<cr>
-nmap <F12>              :qa<cr>
+" nmap <F12>              :qa<cr>
 " nnoremap <leader>qq     :q<cr>
 
 "*** redimensionar janelas
@@ -141,8 +132,7 @@ nmap <leader>gj         :diffget //3<cr>
 nmap <leader>gf         :diffget //2<cr>
 nmap <leader>gs         :G<cr>
 
-let fzf_layout = { 'window': {'width': 0.8, 'height': 0.8 } }
-let $FZF_DEFAULT_OPTS='--reverse'
+"*** fzf-checkout - Manage branches and tags with fzf
 nnoremap <leader>gc     :GCheckout<CR>
 
 "*** nerdtree
@@ -156,3 +146,7 @@ nmap <leader>md         <Plug>MarkdownPreviewToggle
 
 "*** esconder distrações
 nmap <leader>go         :Goyo<cr>
+
+"*** Whichkey - show command completion at bottom
+nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
