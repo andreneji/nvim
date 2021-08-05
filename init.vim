@@ -6,7 +6,6 @@
 " └─────────────────────────────────────────┘
 
 set encoding=UTF-8
-" maiúscula(U) / minúsculas(u) - entrar no modo visual
 
 "*** teclas de atalhos
 let mapleader="\<space>"
@@ -20,19 +19,19 @@ source ~/.config/nvim/hack.vim
 " inicialiações rápidas
 nnoremap <leader>s      :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>ini    :vs ~/.config/nvim/init.vim<cr>
-nnoremap <leader>dic    :vs ~/.config/nvim/dicas.txt<cr>
-nnoremap <leader>coc :vs ~/.config/nvim/coc.vim<cr>
+nnoremap <leader>coc    :vs ~/.config/nvim/coc.vim<cr>
 nnoremap <leader>hac    :vs ~/.config/nvim/hack.vim<cr>
 nnoremap <leader>pl     :vs ~/.config/nvim/plug.vim<cr>
 nnoremap <leader>fun    :vs ~/.config/nvim/funcoes.vim<cr>
 nnoremap <leader>tmu    :vs ~/.tmux.conf<cr>
 
 colorscheme gruvbox
-hi Normal guibg=NONE ctermbg=NONE
+" hi Normal guibg=NONE ctermbg=NONE
 
-map <leader>1           :colorscheme dracula<cr>
-map <leader>2           :colorscheme xcodedarkhc<cr>
-map <leader>3           :colorscheme tender<cr>
+nnoremap <leader>0      :colorscheme gruvbox<cr>
+nnoremap <leader>1      :colorscheme dracula<cr>
+nnoremap <leader>2      :colorscheme xcodedarkhc<cr>
+nnoremap <leader>3      :colorscheme tender<cr>
 
 "*** atalho p/ o fzd (search)
 nnoremap <C-p>          :Files<cr>
@@ -41,6 +40,9 @@ nnoremap <C-p>          :Files<cr>
 nnoremap <C-w>mo        :mksession! ~/.session.vim<CR>:wincmd o<CR>
 nnoremap <leader>mk     :mksession! ~/.session.vim<CR>
 nnoremap <leader>ms     :source ~/.session.vim<CR>
+
+"*** ocultar linhas (Toogle:za | all open/close:zr/zm | delete:zd)
+xnoremap <z-f>          :fold<cr>
 
 "*** navegar entre buffers - (M = ALT)
 nnoremap <M-l>          :bn<cr>
@@ -52,13 +54,13 @@ nnoremap <M-j>          :tabprev<cr>
 nnoremap <leader><tab>  :tabnew<cr>
 
 "*** visualizar e fechar buffers
-nmap <S-F9>             :buffers<cr>
-nmap <Leader><F9>	    :sb<cr>
-nnoremap <c-w>u  	    :bun<cr>
+nnoremap <S-F9>         :buffers<cr>
+nnoremap <Leader><F9>	:sb<cr>
+nnoremap <c-w>u  	    :bun!<cr>
 nnoremap <c-w>qq	    :bd!<cr>
 nnoremap <c-w>q	        :bd<cr>
 " nnoremap <c-w>q       :bd! new<cr>
-map <Leader>b           :b
+nnoremap <Leader>b      :b<cr> 
 " nnoremap <Leader>q	:bd \| bd<cr>
 
 "*** make tab go to the matching pair item
@@ -87,12 +89,12 @@ inoremap <S-insert>     <c-r>*
 noremap <C-Z>           u
 inoremap <C-Z>          <C-O>u
 
-"*** salvar e sair
+"*** salvar e sair (recursive)
 nmap <c-s>              :w<CR>
 vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
-nmap <S-F3>             :wq<cr>
-nmap <S-F12>            :qa<cr>
+nnoremap <S-F3>         :wq<cr>
+nnoremap <S-F12>        :qa<cr>
 " nnoremap <leader>qq     :q<cr>
 
 "*** redimensionar janelas
@@ -108,31 +110,31 @@ xnoremap <C-k>          :copy '<-1<CR>gv-gv
 xnoremap <c-j>          :copy '>-1<cr>gv-gv
 
 "*** exibir caracteres em branco a direita
-nmap <leader>bb         :set list<cr>
-nmap <leader>b          :set nolist<cr>
+nnoremap <leader>bb     :set list<cr>
+nnoremap <leader>b      :set nolist<cr>
 
 "*** habilitar / desabilitar a quebra de linhas
-nmap <leader>ww         :set wrap!<cr>
+nnoremap <leader>ww     :set wrap!<cr>
 
 "*** fugitive + fzf + git
-nmap <leader>gj         :diffget //3<cr>
-nmap <leader>gf         :diffget //2<cr>
-nmap <leader>gs         :G<cr>
+nnoremap <leader>gj     :diffget //3<cr>
+nnoremap <leader>gf     :diffget //2<cr>
+nnoremap <leader>gs     :G<cr>
 
 "*** fzf-checkout - Manage branches and tags with fzf
 nnoremap <leader>gc     :GCheckout<CR>
 
 "*** nerdtree
-nmap <leader>nt         :NERDTreeToggle<CR>
+nnoremap <leader>nt     :NERDTreeToggle<CR>
 
 "*** exibir tracejado
-nmap <leader>ii         :IndentLinesToggle<cr>
+nnoremap <leader>ii     :IndentLinesToggle<cr>
 
 "*** markdown
-nmap <leader>md         <Plug>MarkdownPreviewToggle
+nnoremap <leader>md     <Plug>MarkdownPreviewToggle
 
 "*** esconder distrações
-nmap <leader>go         :Goyo<cr>
+nnoremap <leader>go     :Goyo<cr>
 
 "*** Whichkey - show command completion at bottom
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>

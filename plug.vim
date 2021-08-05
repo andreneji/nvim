@@ -2,6 +2,9 @@ call plug#begin()
 
 "*** temas
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arzg/vim-colors-xcode'
+Plug 'jacoborus/tender.vim'
 
 "*** aparência
 Plug 'junegunn/limelight.vim'
@@ -42,12 +45,9 @@ let g:gruvbox_contrast_dark = ('hard')
 
 "*** wait ***
 "*** temas
-" Plug 'jacoborus/tender.vim'
-" Plug 'arzg/vim-colors-xcode'
 " Plug 'joshdick/onedark.vim'
 " Plug 'tomasr/molokai'
 " Plug 'nanotech/jellybeans.vim'
-" Plug 'dracula/vim', { 'as': 'dracula' }
 
 "*** programação
 " Plug 'ap/vim-css-color'
