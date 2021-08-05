@@ -102,7 +102,8 @@ set nowrap                                  " sem quebra de linha (default com q
 syntax on                                   " ativar sintaxe colorida
 set cmdheight=1                             " apenas uma linha p/ digitar comandos
 set autoindent                              " ativar indentação automática
-set spell
+" set spell
+set spell spelllang=pt                      " dicionário portugues Brasil"
 set smartindent                             " tentará adivinhar a melhor indentação p/ o código quando efetuar quebra de linha. Funciona bem para linguagem C
 set history=5000                            " default - últimos 50 comandos que você digitou em seu histórico. Armazenando os últimos 5000
 set cul                                     " destaca a linha em que o cursor está posicionado (set cursorline)
