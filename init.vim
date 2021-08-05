@@ -6,7 +6,6 @@
 " └─────────────────────────────────────────┘
 
 set encoding=UTF-8
-" maiúscula(U) / minúsculas(u) - entrar no modo visual
 
 "*** teclas de atalhos
 let mapleader="\<space>"
@@ -20,13 +19,13 @@ source ~/.config/nvim/hack.vim
 " inicialiações rápidas
 nnoremap <leader>s      :source ~/.config/nvim/init.vim<cr>
 nnoremap <leader>ini    :vs ~/.config/nvim/init.vim<cr>
-nnoremap <leader>dic    :vs ~/.config/nvim/dicas.txt<cr>
-nnoremap <leader>coc :vs ~/.config/nvim/coc.vim<cr>
+nnoremap <leader>coc    :vs ~/.config/nvim/coc.vim<cr>
 nnoremap <leader>hac    :vs ~/.config/nvim/hack.vim<cr>
 nnoremap <leader>pl     :vs ~/.config/nvim/plug.vim<cr>
 nnoremap <leader>fun    :vs ~/.config/nvim/funcoes.vim<cr>
 nnoremap <leader>tmu    :vs ~/.tmux.conf<cr>
 
+let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
 
@@ -38,9 +37,9 @@ map <leader>3           :colorscheme tender<cr>
 nnoremap <C-p>          :Files<cr>
 
 "*** minimizar buffers, salvando sessão
-nnoremap <C-w>mo        :mksession! ~/.session.vim<CR>:wincmd o<CR>
-nnoremap <leader>mk     :mksession! ~/.session.vim<CR>
-nnoremap <leader>ms     :source ~/.session.vim<CR>
+nnoremap <C-w>mo        :mksession! ~/.session.vim<cr>:wincmd o<cr>
+nnoremap <leader>mks    :mksession! ~/.session.vim<cr>
+nnoremap <leader>mk     :source ~/.session.vim<cr>
 
 "*** navegar entre buffers - (M = ALT)
 nnoremap <M-l>          :bn<cr>
@@ -56,10 +55,7 @@ nmap <S-F9>             :buffers<cr>
 nmap <Leader><F9>	    :sb<cr>
 nnoremap <c-w>u  	    :bun<cr>
 nnoremap <c-w>qq	    :bd!<cr>
-nnoremap <c-w>q	        :bd<cr>
-" nnoremap <c-w>q       :bd! new<cr>
 map <Leader>b           :b
-" nnoremap <Leader>q	:bd \| bd<cr>
 
 "*** make tab go to the matching pair item
 nnoremap <Tab> %
@@ -88,7 +84,7 @@ noremap <C-Z>           u
 inoremap <C-Z>          <C-O>u
 
 "*** salvar e sair
-nmap <c-s>              :w<CR>
+nmap <c-s>              :w<cr>
 vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
 nmap <S-F3>             :wq<cr>
@@ -96,15 +92,15 @@ nmap <S-F12>            :qa<cr>
 " nnoremap <leader>qq     :q<cr>
 
 "*** redimensionar janelas
-nnoremap <c-Up>         :resize +2<CR>
-nnoremap <c-Down>       :resize -2<CR>
-nnoremap <c-Left>       :vertical resize -2<CR>
-nnoremap <c-Right>      :vertical resize +2<CR>
+nnoremap <c-Up>         :resize +2<cr>
+nnoremap <c-Down>       :resize -2<cr>
+nnoremap <c-Left>       :vertical resize -2<cr>
+nnoremap <c-Right>      :vertical resize +2<cr>
 
 "*** move linha selec. p/ cima/baixo com alt+j/alt+k
-xnoremap <a-k>          :move '<-2<CR>gv-gv
-xnoremap <a-j>          :move '>+1<CR>gv-gv
-xnoremap <C-k>          :copy '<-1<CR>gv-gv
+xnoremap <a-k>          :move '<-2<cr>gv-gv
+xnoremap <a-j>          :move '>+1<cr>gv-gv
+xnoremap <C-k>          :copy '<-1<cr>gv-gv
 xnoremap <c-j>          :copy '>-1<cr>gv-gv
 
 "*** exibir caracteres em branco a direita
@@ -120,10 +116,7 @@ nmap <leader>gf         :diffget //2<cr>
 nmap <leader>gs         :G<cr>
 
 "*** fzf-checkout - Manage branches and tags with fzf
-nnoremap <leader>gc     :GCheckout<CR>
-
-"*** nerdtree
-nmap <leader>nt         :NERDTreeToggle<CR>
+nnoremap <leader>gc     :GCheckout<cr>
 
 "*** exibir tracejado
 nmap <leader>ii         :IndentLinesToggle<cr>
@@ -135,5 +128,30 @@ nmap <leader>md         <Plug>MarkdownPreviewToggle
 nmap <leader>go         :Goyo<cr>
 
 "*** Whichkey - show command completion at bottom
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <leader>q :<c-u>WhichKey '<Space>'<cr>
+vnoremap <silent> <leader>q :<c-u>WhichKeyVisual '<Space>'<cr>
+
+"*** au[tocmd] capslock = scape quando entrar no vim e = capslock quando sair
+au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
+
+nmap <leader>za     :silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'<cr>
+nmap <leader>zz     :silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'<cr>
+
+" Behave Vim
+nnoremap Y y$
+
+" keeping it centered
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap J mzJ`z
+
+" Undo break points
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ! !<c-g>u
+inoremap ? ?<c-g>u
+
+" Jumplist mulations
+nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
+nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'

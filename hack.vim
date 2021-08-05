@@ -1,7 +1,78 @@
-" ===============================================
-"    'iamcco/markdown-preview.nvim' - config
-" ===============================================
+" ======================================================
+" Configuração
+" ======================================================
+set nowrap                                  " sem quebra de linha (default com quebra)
+syntax on                                   " ativar sintaxe colorida
+set cmdheight=1                             " apenas uma linha p/ digitar comandos
+set autoindent                              " ativar indentação automática
+set spell
+set smartindent                             " tentará adivinhar a melhor indentação p/ o código quando efetuar quebra de linha. Funciona bem para linguagem C
+set history=5000                            " default - últimos 50 comandos que você digitou em seu histórico. Armazenando os últimos 5000
+set cul                                     " destaca a linha em que o cursor está posicionado (set cursorline)
+set clipboard=unnamedplus                   " ativa transferência entre o Vim e a interface gráfica
+set tabstop=4 softtabstop=4 expandtab       " converte o tab em espaços em branco  - ex.: set tabstop=2 softtabstop=2 expandtab shiftwidth=2
+set hidden                                  " fica em buffer - ao abrir um novo arq.
+set number                                  " ativar numeração de linha
+set relativenumber                          " exibe linhas relativas a posição inicial
+set inccommand=split                        " preview em tempo real ao digitar :%s/texto01/tex02 p/ alterar conteúdo
+set ignorecase                              " ignora maiúsculas e minúsculas nas buscas
+set scs                                     " smartcase - ao fazer uma busca com maiúsculos considerar case sensitive se a primeira letra maiscula
+set noshowmode                              " quando minimizado exibe apenas a primeira letra do modo (normal,insert, visual)
+set scrolloff=8
+" set nohlsearch                              " sem highlight na busca
 
+" ======================================================
+" airline
+" ======================================================
+set laststatus=2
+let g:airline_theme='serene'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_statusline_ontop=0
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+
+" ======================================================
+" fzf-checkout - Manage branches and tags with fzf
+" ======================================================
+let fzf_layout = { 'window': {'width': 0.8, 'height': 0.8 } }
+let $FZF_DEFAULT_OPTS='--reverse'
+
+" ======================================================
+" liuchengxu/vim-which-key - show command completion at bottom
+" ======================================================
+let g:which_key_disable_default_offset = 1
+let g:which_key_use_floating_win = 1
+
+autocmd FileType which_key setlocal nospell
+
+let g:which_key_map = {
+	\ '>' : [':call NextBufferTab()'              , 'tab-next']     ,
+	\ '<' : [':call PrevBufferTab()'              , 'tab-previous'] ,
+    \ "'" : [':call ChooseTerm("term-slider", 1)' , 'terminal']     ,
+	\ "." : [':Explore'                           , 'netrw']        ,
+	\ "C" : 'toggle-cheatsheet-comments'          ,
+	\}
+
+" ======================================================
+" mapeamento do FloatermNew - terminal inside vim
+" ======================================================
+let g:which_key_map.t = {
+	\ 'name' : '+terminal'                                       ,
+	\ 'T'    : [':call ChooseTerm("term-slider", 1)'             , 'terminal'] ,
+	\ 'f'    : [':FloatermNew fzf'                               , 'fzf']      ,
+	\ 'g'    : [':FloatermNew lazygit'                           , 'git']      ,
+	\ 'd'    : [':FloatermNew lazydocker'                        , 'docker']   ,
+	\ 'n'    : [':FloatermNew node'                              , 'node']     ,
+	\ 'p'    : [':FloatermNew python'                            , 'python']   ,
+	\ 'm'    : [':FloatermNew lazynpm'                           , 'npm']      ,
+	\ 't'    : [':FloatermToggle'                                , 'toggle']   ,
+	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
+	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
+	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 /bin/ranger', 'ranger'],
+	\ }
+
+" ======================================================
+" 'iamcco/markdown-preview.nvim' - config
+" ======================================================
 "" set to 1, nvim will open the preview window after entering the markdown buffer
 " default: 0
 let g:mkdp_auto_start = 0
@@ -93,104 +164,50 @@ let g:mkdp_page_title = '「${name}」'
 " these filetypes will have MarkdownPreview... commands
 let g:mkdp_filetypes = ['markdown']
 
-" ===============================================
-    " 'iamcco/markdown-preview.nvim' - config
-" ===============================================
-
-" "*** configurações
-set nowrap                                  " sem quebra de linha (default com quebra)
-syntax on                                   " ativar sintaxe colorida
-set cmdheight=1                             " apenas uma linha p/ digitar comandos
-set autoindent                              " ativar indentação automática
-set spell
-set smartindent                             " tentará adivinhar a melhor indentação p/ o código quando efetuar quebra de linha. Funciona bem para linguagem C
-set history=5000                            " default - últimos 50 comandos que você digitou em seu histórico. Armazenando os últimos 5000
-set cul                                     " destaca a linha em que o cursor está posicionado (set cursorline)
-set clipboard=unnamedplus                   " ativa transferência entre o Vim e a interface gráfica
-set tabstop=4 softtabstop=4 expandtab       " converte o tab em espaços em branco  - ex.: set tabstop=2 softtabstop=2 expandtab shiftwidth=2
-set hidden                                  " fica em buffer - ao abrir um novo arq.
-set number                                  " ativar numeração de linha
-set relativenumber                          " exibe linhas relativas a posição inicial
-set inccommand=split                        " preview em tempo real ao digitar :%s/texto01/tex02 p/ alterar conteúdo
-set ignorecase                              " ignora maiúsculas e minúsculas nas buscas
-set scs                                     " ao fazer uma busca com maiúsculos considerar case sensitive se a primeira letra maiscula
-set noshowmode                              " quando minimizado exibe apenas a primeira letra do modo (normal,insert, visual)
-
-set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
-
-" nerdtree
-let NERDTreeShowHidden = 1
-let NERDTreeIgnore = [
-  \'\.DS_Store$',
-  \'\.bundle$',
-  \'\.capistrano$',
-  \'\.git$',
-  \'\.gitkeep$',
-  \'\.keep$',
-  \'\.localized$',
-  \'\.routes$',
-  \'\.sass-cache$',
-  \'\.swo$',
-  \'\.swp$',
-  \'\.zip$', '\.pdf$','\.png$','\.mkv$','\.jpg$',
-  \'tags$'
-\]
-
-let g:webdevicons_enable = 1               " loading the plugin
-
-" adding the flags to NERDTree
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
-
-"*** desabilitados
+" ======================================================
+" Desabilitados
+" ======================================================
 noremap <Down>  <Nop>
 noremap <Left>  <Nop>
 noremap <Right> <Nop>
 noremap <Up>    <Nop>
-noremap <c-w>q  <Nop>
 
+" ======================================================
+" Wait
+" ======================================================
 " noremap <c-w>h  <Nop>
 " noremap <c-w>j  <Nop>
 " noremap <c-w>k  <Nop>
 " noremap <c-w>l  <Nop>
+" noremap <c-w>q  <Nop>
+" nnoremap <c-w>q       :bd! new<cr>
+" nnoremap <Leader>q	:bd \| bd<cr>
 
-"** airline
-set laststatus=2
-let g:airline_theme='serene'
-let g:airline#extensions#tabline#enabled = 1
-let g:airline_statusline_ontop=0
-let g:airline#extensions#tabline#formatter = 'unique_tail'
+" set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
 
-"*** fzf-checkout - Manage branches and tags with fzf
-let fzf_layout = { 'window': {'width': 0.8, 'height': 0.8 } }
-let $FZF_DEFAULT_OPTS='--reverse'
-
-"*** liuchengxu/vim-which-key - show command completion at bottom
-let g:which_key_disable_default_offset = 1
-let g:which_key_use_floating_win = 1
-
-autocmd FileType which_key setlocal nospell
-
-let g:which_key_map = {
-	\ '>' : [':call NextBufferTab()'              , 'tab-next']     ,
-	\ '<' : [':call PrevBufferTab()'              , 'tab-previous'] ,
-    \ "'" : [':call ChooseTerm("term-slider", 1)' , 'terminal']     ,
-	\ "." : [':Explore'                           , 'netrw']        ,
-	\ "C" : 'toggle-cheatsheet-comments'          ,
-	\}
-
-"*** mapeamento do FloatermNew - terminal inside vim 
-let g:which_key_map.t = {
-	\ 'name' : '+terminal'                                       ,
-	\ 'T'    : [':call ChooseTerm("term-slider", 1)'             , 'terminal'] ,
-	\ 'f'    : [':FloatermNew fzf'                               , 'fzf']      ,
-	\ 'g'    : [':FloatermNew lazygit'                           , 'git']      ,
-	\ 'd'    : [':FloatermNew lazydocker'                        , 'docker']   ,
-	\ 'n'    : [':FloatermNew node'                              , 'node']     ,
-	\ 'p'    : [':FloatermNew python'                            , 'python']   ,
-	\ 'm'    : [':FloatermNew lazynpm'                           , 'npm']      ,
-	\ 't'    : [':FloatermToggle'                                , 'toggle']   ,
-	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
-	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
-	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 /bin/ranger', 'ranger'],
-	\ }
+" " nerdtree
+" let NERDTreeShowHidden = 1
+" let NERDTreeIgnore = [
+"   \'\.DS_Store$',
+"   \'\.bundle$',
+"   \'\.capistrano$',
+"   \'\.git$',
+"   \'\.gitkeep$',
+"   \'\.keep$',
+"   \'\.localized$',
+"   \'\.routes$',
+"   \'\.sass-cache$',
+"   \'\.swo$',
+"   \'\.swp$',
+"   \'\.zip$', '\.pdf$','\.png$','\.mkv$','\.jpg$',
+"   \'tags$'
+" \]
+"
+" let g:webdevicons_enable = 1               " loading the plugin
+"
+" " adding the flags to NERDTree
+" let g:webdevicons_enable_nerdtree = 1
+" let g:webdevicons_conceal_nerdtree_brackets = 1
+"
+"*** nerdtree
+" nmap <leader>nt         :NERDTreeToggle<cr>

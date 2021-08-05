@@ -2,6 +2,9 @@ call plug#begin()
 
 "*** temas
 Plug 'morhetz/gruvbox'
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arzg/vim-colors-xcode'
+Plug 'jacoborus/tender.vim'
 
 "*** aparência
 Plug 'junegunn/limelight.vim'
@@ -27,7 +30,7 @@ Plug 'dense-analysis/ale'                                                 " exib
 Plug 'mattn/emmet-vim'                                                    " formata comandos com abrev. ex: htlm:5 e css / inclui tags entre os textos
 Plug 'tomtom/tcomment_vim'                                                " insere comentários em N linguagens
 Plug 'tpope/vim-fugitive'                                                 " vim + git
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }           " completa diretorios do sistema
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }             " completa diretorios do sistema
 
 "*** search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                       " search de arquivos
@@ -42,12 +45,9 @@ let g:gruvbox_contrast_dark = ('hard')
 
 "*** wait ***
 "*** temas
-" Plug 'jacoborus/tender.vim'
-" Plug 'arzg/vim-colors-xcode'
 " Plug 'joshdick/onedark.vim'
 " Plug 'tomasr/molokai'
 " Plug 'nanotech/jellybeans.vim'
-" Plug 'dracula/vim', { 'as': 'dracula' }
 
 "*** programação
 " Plug 'ap/vim-css-color'
