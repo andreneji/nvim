@@ -131,7 +131,7 @@ nnoremap <leader>nt     :NERDTreeToggle<CR>
 nnoremap <leader>ii     :IndentLinesToggle<cr>
 
 "*** markdown
-nnoremap <leader>md     <Plug>MarkdownPreviewToggle
+nmap <leader>md         <Plug>MarkdownPreviewToggle
 
 "*** esconder distrações
 nnoremap <leader>go     :Goyo<cr>

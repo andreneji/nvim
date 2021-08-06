@@ -20,7 +20,7 @@ set ignorecase                              " ignora maiúsculas e minúsculas n
 set scs                                     " smartcase - ao fazer uma busca com maiúsculos considerar case sensitive se a primeira letra maiscula
 set noshowmode                              " quando minimizado exibe apenas a primeira letra do modo (normal,insert, visual)
 set scrolloff=8
-" set nohlsearch                              " sem highlight na busca
+set nohlsearch                              " sem highlight na busca
 
 " ======================================================
 " airline
@@ -70,6 +70,35 @@ let g:which_key_map.t = {
 	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
 	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 /bin/ranger', 'ranger'],
 	\ }
+
+" ======================================================
+" nerdtree
+" ======================================================
+set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
+
+" nerdtree
+let NERDTreeShowHidden = 1
+let NERDTreeIgnore = [
+  \'\.DS_Store$',
+  \'\.bundle$',
+  \'\.capistrano$',
+  \'\.git$',
+  \'\.gitkeep$',
+  \'\.keep$',
+  \'\.localized$',
+  \'\.routes$',
+  \'\.sass-cache$',
+  \'\.swo$',
+  \'\.swp$',
+  \'\.zip$', '\.pdf$','\.png$','\.mkv$','\.jpg$',
+  \'tags$'
+\]
+
+let g:webdevicons_enable = 1               " loading the plugin
+
+" adding the flags to NERDTree
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " ======================================================
 " 'iamcco/markdown-preview.nvim' - config
@@ -184,28 +213,3 @@ noremap <Up>    <Nop>
 " nnoremap <c-w>q       :bd! new<cr>
 " nnoremap <Leader>q	:bd \| bd<cr>
 
-set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
-
-" nerdtree
-let NERDTreeShowHidden = 1
-let NERDTreeIgnore = [
-  \'\.DS_Store$',
-  \'\.bundle$',
-  \'\.capistrano$',
-  \'\.git$',
-  \'\.gitkeep$',
-  \'\.keep$',
-  \'\.localized$',
-  \'\.routes$',
-  \'\.sass-cache$',
-  \'\.swo$',
-  \'\.swp$',
-  \'\.zip$', '\.pdf$','\.png$','\.mkv$','\.jpg$',
-  \'tags$'
-\]
-
-let g:webdevicons_enable = 1               " loading the plugin
-
-" adding the flags to NERDTree
-let g:webdevicons_enable_nerdtree = 1
-let g:webdevicons_conceal_nerdtree_brackets = 1
