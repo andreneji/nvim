@@ -5,7 +5,8 @@ set nowrap                                  " sem quebra de linha (default com q
 syntax on                                   " ativar sintaxe colorida
 set cmdheight=1                             " apenas uma linha p/ digitar comandos
 set autoindent                              " ativar indentação automática
-set spell
+" set spell
+set spell spelllang=pt                      " dicionário português Brasil"
 set smartindent                             " tentará adivinhar a melhor indentação p/ o código quando efetuar quebra de linha. Funciona bem para linguagem C
 set history=5000                            " default - últimos 50 comandos que você digitou em seu histórico. Armazenando os últimos 5000
 set cul                                     " destaca a linha em que o cursor está posicionado (set cursorline)
@@ -183,31 +184,28 @@ noremap <Up>    <Nop>
 " nnoremap <c-w>q       :bd! new<cr>
 " nnoremap <Leader>q	:bd \| bd<cr>
 
-" set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
+set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
 
-" " nerdtree
-" let NERDTreeShowHidden = 1
-" let NERDTreeIgnore = [
-"   \'\.DS_Store$',
-"   \'\.bundle$',
-"   \'\.capistrano$',
-"   \'\.git$',
-"   \'\.gitkeep$',
-"   \'\.keep$',
-"   \'\.localized$',
-"   \'\.routes$',
-"   \'\.sass-cache$',
-"   \'\.swo$',
-"   \'\.swp$',
-"   \'\.zip$', '\.pdf$','\.png$','\.mkv$','\.jpg$',
-"   \'tags$'
-" \]
-"
-" let g:webdevicons_enable = 1               " loading the plugin
-"
-" " adding the flags to NERDTree
-" let g:webdevicons_enable_nerdtree = 1
-" let g:webdevicons_conceal_nerdtree_brackets = 1
-"
-"*** nerdtree
-" nmap <leader>nt         :NERDTreeToggle<cr>
+" nerdtree
+let NERDTreeShowHidden = 1
+let NERDTreeIgnore = [
+  \'\.DS_Store$',
+  \'\.bundle$',
+  \'\.capistrano$',
+  \'\.git$',
+  \'\.gitkeep$',
+  \'\.keep$',
+  \'\.localized$',
+  \'\.routes$',
+  \'\.sass-cache$',
+  \'\.swo$',
+  \'\.swp$',
+  \'\.zip$', '\.pdf$','\.png$','\.mkv$','\.jpg$',
+  \'tags$'
+\]
+
+let g:webdevicons_enable = 1               " loading the plugin
+
+" adding the flags to NERDTree
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1

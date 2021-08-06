@@ -15,9 +15,16 @@ Plug 'unblevable/quick-scope'                                             " bett
 Plug 'ryanoasis/vim-devicons'
 Plug 'mhinz/vim-startify'                                                 " tela de entrada personalizada
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }  " If you have nodejs and yarn
+Plug 'shime/vim-livedown'                                                 " atualiza pag. (site) automatico - gc / gc + N+j ou k
 Plug 'Yggdroot/indentLine'                                                " exibe tracejado com identação dos comandos
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }      " show command completion at bottom
 Plug 'voldikss/vim-floaterm'                                              " terminal inside vim 
+
+"*** gerenciador de arquivos
+Plug 'preservim/nerdtree'                                                 
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/nerdtree'         
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "*** programação
 Plug 'airblade/vim-gitgutter'                                             " shows a git diff in the sign column
@@ -51,12 +58,7 @@ let g:gruvbox_contrast_dark = ('hard')
 
 "*** programação
 " Plug 'ap/vim-css-color'
-" Plug 'shime/vim-livedown'                                                 " atualiza pag. (site) automatico - gc / gc + N+j ou k
 " Plug 'epmatsw/ag.vim'                                                     " search - apt install silversearcher-ag
 " Plug 'vim-ruby/vim-ruby'
-" Plug 'preservim/nerdtree'                                                 " gerenciador de arquivos
-" Plug 'Xuyuanp/nerdtree-git-plugin'
-" Plug 'scrooloose/nerdtree'                                                ?????
-" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'vim-scripts/Brolink.vim'
 " Plug 'sheerun/html5.vim'

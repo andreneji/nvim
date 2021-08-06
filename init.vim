@@ -41,6 +41,9 @@ nnoremap <C-w>mo        :mksession! ~/.session.vim<cr>:wincmd o<cr>
 nnoremap <leader>mks    :mksession! ~/.session.vim<cr>
 nnoremap <leader>mk     :source ~/.session.vim<cr>
 
+"*** ocultar linhas (Toogle:za | all open/close:zr/zm | delete:zd)
+xnoremap <z-f>          :fold<cr>
+
 "*** navegar entre buffers - (M = ALT)
 nnoremap <M-l>          :bn<cr>
 nnoremap <M-h>          :bp<cr>
@@ -51,11 +54,14 @@ nnoremap <M-j>          :tabprev<cr>
 nnoremap <leader><tab>  :tabnew<cr>
 
 "*** visualizar e fechar buffers
-nmap <S-F9>             :buffers<cr>
-nmap <Leader><F9>	    :sb<cr>
-nnoremap <c-w>u  	    :bun<cr>
+nnoremap <S-F9>         :buffers<cr>
+nnoremap <Leader><F9>	:sb<cr>
+nnoremap <c-w>u  	    :bun!<cr>
 nnoremap <c-w>qq	    :bd!<cr>
-map <Leader>b           :b
+nnoremap <c-w>q	        :bd<cr>
+" nnoremap <c-w>q       :bd! new<cr>
+nnoremap <Leader>b      :b<cr> 
+" nnoremap <Leader>q	:bd \| bd<cr>
 
 "*** make tab go to the matching pair item
 nnoremap <Tab> %
@@ -83,12 +89,12 @@ inoremap <S-insert>     <c-r>*
 noremap <C-Z>           u
 inoremap <C-Z>          <C-O>u
 
-"*** salvar e sair
-nmap <c-s>              :w<cr>
+"*** salvar e sair (recursive)
+nmap <c-s>              :w<CR>
 vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
-nmap <S-F3>             :wq<cr>
-nmap <S-F12>            :qa<cr>
+nnoremap <S-F3>         :wq<cr>
+nnoremap <S-F12>        :qa<cr>
 " nnoremap <leader>qq     :q<cr>
 
 "*** redimensionar janelas
@@ -104,28 +110,31 @@ xnoremap <C-k>          :copy '<-1<cr>gv-gv
 xnoremap <c-j>          :copy '>-1<cr>gv-gv
 
 "*** exibir caracteres em branco a direita
-nmap <leader>bb         :set list<cr>
-nmap <leader>b          :set nolist<cr>
+nnoremap <leader>bb     :set list<cr>
+nnoremap <leader>b      :set nolist<cr>
 
 "*** habilitar / desabilitar a quebra de linhas
-nmap <leader>ww         :set wrap!<cr>
+nnoremap <leader>ww     :set wrap!<cr>
 
 "*** fugitive + fzf + git
-nmap <leader>gj         :diffget //3<cr>
-nmap <leader>gf         :diffget //2<cr>
-nmap <leader>gs         :G<cr>
+nnoremap <leader>gj     :diffget //3<cr>
+nnoremap <leader>gf     :diffget //2<cr>
+nnoremap <leader>gs     :G<cr>
 
 "*** fzf-checkout - Manage branches and tags with fzf
 nnoremap <leader>gc     :GCheckout<cr>
 
+"*** nerdtree
+nnoremap <leader>nt     :NERDTreeToggle<CR>
+
 "*** exibir tracejado
-nmap <leader>ii         :IndentLinesToggle<cr>
+nnoremap <leader>ii     :IndentLinesToggle<cr>
 
 "*** markdown
-nmap <leader>md         <Plug>MarkdownPreviewToggle
+nnoremap <leader>md     <Plug>MarkdownPreviewToggle
 
 "*** esconder distrações
-nmap <leader>go         :Goyo<cr>
+nnoremap <leader>go     :Goyo<cr>
 
 "*** Whichkey - show command completion at bottom
 nnoremap <silent> <leader>q :<c-u>WhichKey '<Space>'<cr>
