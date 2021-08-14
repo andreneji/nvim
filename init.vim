@@ -60,7 +60,7 @@ nnoremap <c-w>u  	    :bun!<cr>
 nnoremap <c-w>qq	    :bd!<cr>
 nnoremap <c-w>q	        :bd<cr>
 " nnoremap <c-w>q       :bd! new<cr>
-nnoremap <Leader>b      :b<cr> 
+nnoremap <Leader>b      :b<cr>
 " nnoremap <Leader>q	:bd \| bd<cr>
 
 "*** make tab go to the matching pair item
@@ -144,8 +144,8 @@ vnoremap <silent> <leader>q :<c-u>WhichKeyVisual '<Space>'<cr>
 au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
-nmap <leader>za     :silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'<cr>
-nmap <leader>zz     :silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'<cr>
+nmap <leader>za         :silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'<cr>
+nmap <leader>zz         :silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'<cr>
 
 " Behave Vim
 nnoremap Y y$
@@ -164,3 +164,6 @@ inoremap ? ?<c-g>u
 " Jumplist mulations
 nnoremap <expr> k (v:count > 5 ? "m'" . v:count : "") . 'k'
 nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
+
+" Retira os ^M que ficam no final de arquivos salvos pelo windows
+nnoremap <leader>tt     :%s/\r//g

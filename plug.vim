@@ -18,12 +18,12 @@ Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }  " If y
 Plug 'shime/vim-livedown'                                                 " atualiza pag. (site) automatico - gc / gc + N+j ou k
 Plug 'Yggdroot/indentLine'                                                " exibe tracejado com identação dos comandos
 Plug 'liuchengxu/vim-which-key', { 'on': ['WhichKey', 'WhichKey!'] }      " show command completion at bottom
-Plug 'voldikss/vim-floaterm'                                              " terminal inside vim 
+Plug 'voldikss/vim-floaterm'                                              " terminal inside vim
 
 "*** gerenciador de arquivos
-Plug 'preservim/nerdtree'                                                 
+Plug 'preservim/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'scrooloose/nerdtree'         
+Plug 'scrooloose/nerdtree'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 "*** programação
@@ -42,7 +42,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }             " comp
 "*** search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                       " search de arquivos
 Plug 'junegunn/fzf.vim'
-Plug 'stsewd/fzf-checkout.vim' 
+Plug 'stsewd/fzf-checkout.vim'
 Plug 'mileszs/ack.vim'                                                    " search  de conteúdo
 " sudo apt install ack-grep
 " sudo dpkg-divert --local --divert /usr/bin/ack --rename --add /usr/bin/ack-grep
