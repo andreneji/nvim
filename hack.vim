@@ -21,7 +21,7 @@ set ignorecase                              " ignora maiúsculas e minúsculas n
 set scs                                     " smartcase - ao fazer uma busca com maiúsculos considerar case sensitive se a primeira letra maiscula
 set noshowmode                              " quando minimizado exibe apenas a primeira letra do modo (normal,insert, visual)
 set scrolloff=8
-set nohlsearch                              " sem highlight na busca
+" set nohlsearch                              " sem highlight na busca
 
 " ======================================================
 " airline

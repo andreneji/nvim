@@ -167,3 +167,8 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 
 " Retira os ^M que ficam no final de arquivos salvos pelo windows
 nnoremap <leader>tt     :%s/\r//g
+
+au WinLeave * set nocursorline nocursorcolumn
+au WinEnter * set cursorline cursorcolumn
+
+nnoremap <leader>mm     :MaximizerToggle!<cr>

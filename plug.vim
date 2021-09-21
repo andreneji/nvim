@@ -39,6 +39,10 @@ Plug 'tomtom/tcomment_vim'                                                " inse
 Plug 'tpope/vim-fugitive'                                                 " vim + git
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }             " completa diretorios do sistema
 
+"*** debug
+Plug 'puremourning/vimspector'
+Plug 'szw/vim-maximizer'
+
 "*** search
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }                       " search de arquivos
 Plug 'junegunn/fzf.vim'
