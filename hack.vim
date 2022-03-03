@@ -21,7 +21,10 @@ set ignorecase                              " ignora maiúsculas e minúsculas n
 set scs                                     " smartcase - ao fazer uma busca com maiúsculos considerar case sensitive se a primeira letra maiscula
 set noshowmode                              " quando minimizado exibe apenas a primeira letra do modo (normal,insert, visual)
 set scrolloff=8
-" set nohlsearch                              " sem highlight na busca
+set nohlsearch                              " sem highlight na busca
+set autoread                                " update vim after file update from outside
+set splitbelow                              " create the vertical splits to the right
+set splitright                              " create the vertical splits below
 
 " ======================================================
 " airline
@@ -75,9 +78,6 @@ let g:which_key_map.t = {
 " ======================================================
 " nerdtree
 " ======================================================
-set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
-
-" nerdtree
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore = [
   \'\.DS_Store$',
@@ -204,13 +204,32 @@ noremap <Right> <Nop>
 noremap <Up>    <Nop>
 
 " ======================================================
-" Wait
+" Nerdcommenter
 " ======================================================
-" noremap <c-w>h  <Nop>
-" noremap <c-w>j  <Nop>
-" noremap <c-w>k  <Nop>
-" noremap <c-w>l  <Nop>
-" noremap <c-w>q  <Nop>
-" nnoremap <c-w>q       :bd! new<cr>
-" nnoremap <Leader>q	:bd \| bd<cr>
 
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1

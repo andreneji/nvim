@@ -7,13 +7,14 @@
 
 set encoding=UTF-8
 
+"*** defaults: desfazer (u) / refazer (ctrl+r)
 "*** teclas de atalhos
 let mapleader="\<space>"
 
 " conf. (LINUX)
 source ~/.config/nvim/plug.vim
 source ~/.config/nvim/funcoes.vim
-source ~/.config/nvim/coc.vim
+" source ~/.config/nvim/coc.vim
 source ~/.config/nvim/hack.vim
 
 " inicialiações rápidas
@@ -24,6 +25,8 @@ nnoremap <leader>hac    :vs ~/.config/nvim/hack.vim<cr>
 nnoremap <leader>pl     :vs ~/.config/nvim/plug.vim<cr>
 nnoremap <leader>fun    :vs ~/.config/nvim/funcoes.vim<cr>
 nnoremap <leader>tmu    :vs ~/.tmux.conf<cr>
+
+filetype plugin on
 
 let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
@@ -53,15 +56,16 @@ nnoremap <M-k>          :tabnext<cr>
 nnoremap <M-j>          :tabprev<cr>
 nnoremap <leader><tab>  :tabnew<cr>
 
-"*** visualizar e fechar buffers
-nnoremap <S-F9>         :buffers<cr>
-nnoremap <Leader><F9>	:sb<cr>
-nnoremap <c-w>u  	    :bun!<cr>
+"*** miniminizar buffer atual
+nnoremap <leader>jj  	:bun<cr>
+
+"*** fechar buffer atual s/ salvar ou salvando
 nnoremap <c-w>qq	    :bd!<cr>
 nnoremap <c-w>q	        :bd<cr>
-" nnoremap <c-w>q       :bd! new<cr>
-nnoremap <Leader>b      :b<cr>
-" nnoremap <Leader>q	:bd \| bd<cr>
+
+"*** fechar todos os buffers s/ salvar ou salvando
+nnoremap <leader>Q      :qa!<cr>
+nnoremap <leader>W      :wqa<cr>
 
 "*** make tab go to the matching pair item
 nnoremap <Tab> %
@@ -84,10 +88,6 @@ vnoremap <C-insert>     "+y
 nnoremap <S-insert>     "+gP
 vnoremap <S-insert>     "+gP
 inoremap <S-insert>     <c-r>*
-
-"*** desfazer - p/ refazer ctrl+r
-noremap <C-Z>           u
-inoremap <C-Z>          <C-O>u
 
 "*** salvar e sair (recursive)
 nmap <c-s>              :w<CR>

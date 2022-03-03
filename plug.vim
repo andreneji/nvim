@@ -29,13 +29,14 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 "*** programação
 Plug 'airblade/vim-gitgutter'                                             " shows a git diff in the sign column
 Plug 'sheerun/vim-polyglot'                                               " sintax de varias linguagens atualizado
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                           " auto complete com várias funções
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}                           " auto complete com várias funções
 Plug 'jiangmiao/auto-pairs'                                               " inclui pares ao digitar
 Plug 'tpope/vim-surround'                                                 " inclui pares na setença ja criada
 Plug 'terryma/vim-multiple-cursors'                                       " altera palavas em linhas diferentes em tempo real
 Plug 'dense-analysis/ale'                                                 " exibe erros no código na digitação
 Plug 'mattn/emmet-vim'                                                    " formata comandos com abrev. ex: htlm:5 e css / inclui tags entre os textos
-Plug 'tomtom/tcomment_vim'                                                " insere comentários em N linguagens
+Plug 'preservim/nerdcommenter'                                            " insere comentários em N linguagens
+" Plug 'tomtom/tcomment_vim'                                                " insere comentários em N linguagens
 Plug 'tpope/vim-fugitive'                                                 " vim + git
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }             " completa diretorios do sistema
 
