@@ -8,9 +8,7 @@ set autoindent                              " ativar indentação automática
 set spell
 set spell spelllang=pt,en_us                " dicionário português Brasil e inglês USA
 set smartindent                             " tentará adivinhar a melhor indentação p/ o código quando efetuar quebra de linha. Funciona bem para linguagem C
-set history=5000                            " default - últimos 50 comandos que você digitou em seu histórico. Armazenando os últimos 5000
-set cul                                     " destaca a linha em que o cursor está posicionado (set cursorline)
-set cuc                                     " destaca a coluna em que o cursor está posicionado
+set history=5000                            " default - últimos 50 comandos que você digitou em seu histórico
 set clipboard=unnamedplus                   " ativa transferência entre o Vim e a interface gráfica
 set tabstop=4 softtabstop=4 expandtab       " converte o tab em espaços em branco  - ex.: set tabstop=2 softtabstop=2 expandtab shiftwidth=2
 set hidden                                  " fica em buffer - ao abrir um novo arq.
@@ -21,7 +19,12 @@ set ignorecase                              " ignora maiúsculas e minúsculas n
 set scs                                     " smartcase - ao fazer uma busca com maiúsculos considerar case sensitive se a primeira letra maiscula
 set noshowmode                              " quando minimizado exibe apenas a primeira letra do modo (normal,insert, visual)
 set scrolloff=8
-" set nohlsearch                              " sem highlight na busca
+set nohlsearch                              " sem highlight na busca
+
+set cul                                     " destaca a linha em que o cursor está posicionado (set cursorline)
+autocmd InsertEnter,InsertLeave * set cuc!  " ḣabilita/desabilita o destaque de coluna ao entrar/sair do insert mode"
+au WinLeave * set nocursorline              " ao sair do buffer, desabilita destaque de linha
+au WinEnter * set cursorline				" ao entrar no buffer, habilita destaque de linha
 
 " ======================================================
 " airline
@@ -33,51 +36,8 @@ let g:airline_statusline_ontop=0
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 " ======================================================
-" fzf-checkout - Manage branches and tags with fzf
-" ======================================================
-let fzf_layout = { 'window': {'width': 0.8, 'height': 0.8 } }
-let $FZF_DEFAULT_OPTS='--reverse'
-
-" ======================================================
-" liuchengxu/vim-which-key - show command completion at bottom
-" ======================================================
-let g:which_key_disable_default_offset = 1
-let g:which_key_use_floating_win = 1
-
-autocmd FileType which_key setlocal nospell
-
-let g:which_key_map = {
-	\ '>' : [':call NextBufferTab()'              , 'tab-next']     ,
-	\ '<' : [':call PrevBufferTab()'              , 'tab-previous'] ,
-    \ "'" : [':call ChooseTerm("term-slider", 1)' , 'terminal']     ,
-	\ "." : [':Explore'                           , 'netrw']        ,
-	\ "C" : 'toggle-cheatsheet-comments'          ,
-	\}
-
-" ======================================================
-" mapeamento do FloatermNew - terminal inside vim
-" ======================================================
-let g:which_key_map.t = {
-	\ 'name' : '+terminal'                                       ,
-	\ 'T'    : [':call ChooseTerm("term-slider", 1)'             , 'terminal'] ,
-	\ 'f'    : [':FloatermNew fzf'                               , 'fzf']      ,
-	\ 'g'    : [':FloatermNew lazygit'                           , 'git']      ,
-	\ 'd'    : [':FloatermNew lazydocker'                        , 'docker']   ,
-	\ 'n'    : [':FloatermNew node'                              , 'node']     ,
-	\ 'p'    : [':FloatermNew python'                            , 'python']   ,
-	\ 'm'    : [':FloatermNew lazynpm'                           , 'npm']      ,
-	\ 't'    : [':FloatermToggle'                                , 'toggle']   ,
-	\ 's'    : [':FloatermNew gotop'                             , 'gotop']    ,
-	\ 'h'    : [':FloatermNew ncdu'                              , 'ncdu']     ,
-	\ 'r'    : [':FloatermNew --width=0.99 --height=0.99 /bin/ranger', 'ranger'],
-	\ }
-
-" ======================================================
 " nerdtree
 " ======================================================
-set guifont=Hack\ Regular\ Nerd\ Font\ Complete\ 12
-
-" nerdtree
 let NERDTreeShowHidden = 1
 let NERDTreeIgnore = [
   \'\.DS_Store$',
@@ -149,19 +109,6 @@ let g:mkdp_echo_preview_url = 0
 let g:mkdp_browserfunc = ''
 
 " options for markdown render
-" mkit: markdown-it options for render
-" katex: katex options for math
-" uml: markdown-it-plantuml options
-" maid: mermaid options
-" disable_sync_scroll: if disable sync scroll, default 0
-" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
-"   middle: mean the cursor position alway show at the middle of the preview page
-"   top: mean the vim top viewport alway show at the top of the preview page
-"   relative: mean the cursor position alway show at the relative positon of the preview page
-" hide_yaml_meta: if hide yaml metadata, default is 1
-" sequence_diagrams: js-sequence-diagrams options
-" content_editable: if enable content editable for preview page, default: v:false
-" disable_filename: if disable filename header for preview page, default: 0
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {},
@@ -202,15 +149,3 @@ noremap <Down>  <Nop>
 noremap <Left>  <Nop>
 noremap <Right> <Nop>
 noremap <Up>    <Nop>
-
-" ======================================================
-" Wait
-" ======================================================
-" noremap <c-w>h  <Nop>
-" noremap <c-w>j  <Nop>
-" noremap <c-w>k  <Nop>
-" noremap <c-w>l  <Nop>
-" noremap <c-w>q  <Nop>
-" nnoremap <c-w>q       :bd! new<cr>
-" nnoremap <Leader>q	:bd \| bd<cr>
-
