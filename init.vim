@@ -1,5 +1,5 @@
 " ┌─────────────────────────────────────────┐
-" │         VimFiles by André Lima          │
+" │        NvimFiles by André Lima          │
 " ├─────────────────────────────────────────┤
 " | email: andreneji@gmail.com              |
 " | https://github.com/andreneji/vimfiles/  |
@@ -7,53 +7,51 @@
 
 set encoding=UTF-8
 
-"*** defaults: desfazer (u) / refazer (ctrl+r)
 "*** teclas de atalhos
 let mapleader="\<space>"
 
 " conf. (LINUX)
-source ~/.config/nvim/plug.vim
-source ~/.config/nvim/funcoes.vim
-" source ~/.config/nvim/coc.vim
-source ~/.config/nvim/hack.vim
+source $HOME/.config/nvim/plug.vim
+source $HOME/.config/nvim/funcoes.vim
+"source $HOME/.config/nvim/coc.vim
+source $HOME/.config/nvim/hack.vim
 
 " inicialiações rápidas
-nnoremap <leader>s      :source ~/.config/nvim/init.vim<cr>
-nnoremap <leader>ini    :vs ~/.config/nvim/init.vim<cr>
-nnoremap <leader>coc    :vs ~/.config/nvim/coc.vim<cr>
-nnoremap <leader>hac    :vs ~/.config/nvim/hack.vim<cr>
-nnoremap <leader>pl     :vs ~/.config/nvim/plug.vim<cr>
-nnoremap <leader>fun    :vs ~/.config/nvim/funcoes.vim<cr>
-nnoremap <leader>tmu    :vs ~/.tmux.conf<cr>
+nnoremap <leader>s      :source $HOME/.config/nvim/init.vim<cr>
+nnoremap <leader>ini    :vs $HOME/.config/nvim/init.vim<cr>
+"nnoremap <leader>coc    :vs $HOME/.confg/nvim/coc.vim<cr>
+nnoremap <leader>hac    :vs $HOME/.config/nvim/hack.vim<cr>
+nnoremap <leader>pl     :vs $HOME/.config/nvim/plug.vim<cr>
+nnoremap <leader>fun    :vs $HOME/.config/nvim/funcoes.vim<cr>
+nnoremap <leader>tmu    :vs $HOME/.tmux.conf<cr>
 
-filetype plugin on
-
+"*** themes
 let g:gruvbox_invert_selection='0'
 colorscheme gruvbox
 hi Normal guibg=NONE ctermbg=NONE
 
-map <leader>1           :colorscheme dracula<cr>
-map <leader>2           :colorscheme xcodedarkhc<cr>
-map <leader>3           :colorscheme tender<cr>
+map <leader>0           :colorscheme gruvbox<cr>
+map <leader>1           :colorscheme xcodedarkhc<cr>
+map <leader>2           :colorscheme tender<cr>
 
 "*** atalho p/ o fzd (search)
-nnoremap <C-p>          :Files<cr>
+"nnoremap <C-p>          :Files<cr>
 
 "*** minimizar buffers, salvando sessão
-nnoremap <C-w>mo        :mksession! ~/.session.vim<cr>:wincmd o<cr>
-nnoremap <leader>mks    :mksession! ~/.session.vim<cr>
-nnoremap <leader>mk     :source ~/.session.vim<cr>
+nnoremap <leader>mo     :mksession! ~/.session.vim<cr>:wincmd o<cr>
+nnoremap <leader>mk     :mksession! ~/.session.vim<cr>
+nnoremap <leader>ms     :source ~/.session.vim<cr>
 
 "*** ocultar linhas (Toogle:za | all open/close:zr/zm | delete:zd)
 xnoremap <z-f>          :fold<cr>
 
-"*** navegar entre buffers - (M = ALT)
-nnoremap <M-l>          :bn<cr>
-nnoremap <M-h>          :bp<cr>
+"*** navegar entre buffers
+nnoremap <leader>k      :bn<cr>
+nnoremap <leader>j      :bp<cr>
 
-"*** abrir e navegar entre tabs (abas) - (M = ALT)
-nnoremap <M-k>          :tabnext<cr>
-nnoremap <M-j>          :tabprev<cr>
+"*** abrir e navegar entre tabs (abas)
+nnoremap <tab>k         :tabnext<cr>
+nnoremap <tab>j         :tabprev<cr>
 nnoremap <leader><tab>  :tabnew<cr>
 
 "*** miniminizar buffer atual
@@ -71,10 +69,10 @@ nnoremap <leader>W      :wqa<cr>
 nnoremap <Tab> %
 
 "*** open new splits in a semantic way
-nnoremap <c-w>99        :lefta vsp new <cr>
-nnoremap <c-w>--        :bel sp new<cr>
-nnoremap <c-w>==        :abo sp new<cr>
-nnoremap <c-w>00        :rightb vsp new<cr>
+nnoremap <c-w>h         :lefta vsp new <cr>
+nnoremap <c-w>j         :bel sp new<cr>
+nnoremap <c-w>k         :abo sp new<cr>
+nnoremap <c-w>l         :rightb vsp new<cr>
 
 "*** alterar entre janelas c/ cursor
 nnoremap <c-h>          <c-w>h
@@ -93,9 +91,6 @@ inoremap <S-insert>     <c-r>*
 nmap <c-s>              :w<CR>
 vmap <c-s>              <esc><c-s>
 imap <c-s>              <esc><c-s>
-nnoremap <S-F3>         :wq<cr>
-nnoremap <S-F12>        :qa<cr>
-" nnoremap <leader>qq     :q<cr>
 
 "*** redimensionar janelas
 nnoremap <c-Up>         :resize +2<cr>
@@ -103,11 +98,9 @@ nnoremap <c-Down>       :resize -2<cr>
 nnoremap <c-Left>       :vertical resize -2<cr>
 nnoremap <c-Right>      :vertical resize +2<cr>
 
-"*** move linha selec. p/ cima/baixo com alt+j/alt+k
-xnoremap <a-k>          :move '<-2<cr>gv-gv
-xnoremap <a-j>          :move '>+1<cr>gv-gv
-xnoremap <C-k>          :copy '<-1<cr>gv-gv
-xnoremap <c-j>          :copy '>-1<cr>gv-gv
+"*** move linha selec. p/ cima/baixo com alt+j/alt+k - (M=ALT e S=Shift)
+xnoremap <S-k>          :move '<-2<cr>gv-gv
+xnoremap <S-j>          :move '>+1<cr>gv-gv
 
 "*** exibir caracteres em branco a direita
 nnoremap <leader>bb     :set list<cr>
@@ -144,6 +137,7 @@ vnoremap <silent> <leader>q :<c-u>WhichKeyVisual '<Space>'<cr>
 au VimEnter * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 au VimLeave * silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'
 
+"*** altera a tecla CAPS LOCK p/ ESC
 nmap <leader>za         :silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'<cr>
 nmap <leader>zz         :silent! !xmodmap -e 'clear Lock' -e 'keycode 0x42 = Caps_Lock'<cr>
 
@@ -168,7 +162,5 @@ nnoremap <expr> j (v:count > 5 ? "m'" . v:count : "") . 'j'
 " Retira os ^M que ficam no final de arquivos salvos pelo windows
 nnoremap <leader>tt     :%s/\r//g
 
-au WinLeave * set nocursorline nocursorcolumn
-au WinEnter * set cursorline cursorcolumn
-
+" Minimiza / maximiza buffers fora do cursor
 nnoremap <leader>mm     :MaximizerToggle!<cr>

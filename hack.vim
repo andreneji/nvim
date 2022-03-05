@@ -8,9 +8,7 @@ set autoindent                              " ativar indentação automática
 set spell
 set spell spelllang=pt,en_us                " dicionário português Brasil e inglês USA
 set smartindent                             " tentará adivinhar a melhor indentação p/ o código quando efetuar quebra de linha. Funciona bem para linguagem C
-set history=5000                            " default - últimos 50 comandos que você digitou em seu histórico. Armazenando os últimos 5000
-set cul                                     " destaca a linha em que o cursor está posicionado (set cursorline)
-set cuc                                     " destaca a coluna em que o cursor está posicionado
+set history=5000                            " default - últimos 50 comandos digitados no histórico
 set clipboard=unnamedplus                   " ativa transferência entre o Vim e a interface gráfica
 set tabstop=4 softtabstop=4 expandtab       " converte o tab em espaços em branco  - ex.: set tabstop=2 softtabstop=2 expandtab shiftwidth=2
 set hidden                                  " fica em buffer - ao abrir um novo arq.
@@ -25,6 +23,11 @@ set nohlsearch                              " sem highlight na busca
 set autoread                                " update vim after file update from outside
 set splitbelow                              " create the vertical splits to the right
 set splitright                              " create the vertical splits below
+
+set cul                                     " destaca a linha em que o cursor está posicionado (set cursorline)
+autocmd InsertEnter,InsertLeave * set cuc!  " ḣabilita/desabilita o destaque de coluna ao entrar/sair do insert mode"
+au WinLeave * set nocursorline              " ao sair do buffer, desabilita destaque de linha
+au WinEnter * set cursorline				" ao entrar no buffer, habilita destaque de linha
 
 " ======================================================
 " airline
@@ -148,20 +151,9 @@ let g:mkdp_echo_preview_url = 0
 " default is empty
 let g:mkdp_browserfunc = ''
 
+" ======================================================
 " options for markdown render
-" mkit: markdown-it options for render
-" katex: katex options for math
-" uml: markdown-it-plantuml options
-" maid: mermaid options
-" disable_sync_scroll: if disable sync scroll, default 0
-" sync_scroll_type: 'middle', 'top' or 'relative', default value is 'middle'
-"   middle: mean the cursor position alway show at the middle of the preview page
-"   top: mean the vim top viewport alway show at the top of the preview page
-"   relative: mean the cursor position alway show at the relative positon of the preview page
-" hide_yaml_meta: if hide yaml metadata, default is 1
-" sequence_diagrams: js-sequence-diagrams options
-" content_editable: if enable content editable for preview page, default: v:false
-" disable_filename: if disable filename header for preview page, default: 0
+" ======================================================
 let g:mkdp_preview_options = {
     \ 'mkit': {},
     \ 'katex': {},
